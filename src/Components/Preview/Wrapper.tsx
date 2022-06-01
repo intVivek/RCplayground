@@ -1,40 +1,41 @@
-import React, {FC} from 'react'
-import {Box} from '@rocket.chat/fuselage';
-import {css} from '@rocket.chat/css-in-js';
-import {useResizeObserver} from '@rocket.chat/fuselage-hooks';
+import React, { FC } from 'react'
+import { Box } from '@rocket.chat/fuselage';
+import { css } from '@rocket.chat/css-in-js';
+import { useSelector } from 'react-redux';
 
 import Display from './Display';
 import Editor from './Editor';
+import { stateType } from '../../Store';
 
-const Wrapper: FC<{isTablet: Boolean, isPreview: Boolean}> = ({isTablet, isPreview}) => {
-    const { ref, contentBoxSize, borderBoxSize } = useResizeObserver();
-    console.log(ref, contentBoxSize, borderBoxSize);
-  return (
-    <Box  
-        position='relative'
-        width={'100%'}
-        flexGrow={1}
-        ref={ref}
-    >
+const Wrapper: FC = () => {
+
+    const { isTablet, editorToggle } = useSelector((state: stateType) => state);
+
+    return (
         <Box
-            position='absolute'
-            width={isTablet?'200%':'100%'}
-            height={'100%'}
-            display={'flex'}
-            className={
-                isPreview?css`
-                    transition: 0.5s ease;
-                    transform: translateX(0%);`
-                :css`
-                    transition: 0.5s ease;
-                    transform: translateX(-50%);`
-            }
+            position='relative'
+            width={'100%'}
+            flexGrow={1}
         >
-            <Display />
-            <Editor isTablet={isTablet}/>
+            <Box
+                position='absolute'
+                width={isTablet ? '200%' : '100%'}
+                height={'100%'}
+                display={'flex'}
+                className={
+                    editorToggle ? css`
+                        transition: 0.5s ease;
+                        transform: translateX(-50%);`
+                        : css`
+                        transition: 0.5s ease;
+                        transform: translateX(0%);`
+                }
+            >
+                <Display />
+                <Editor />
+            </Box>
         </Box>
-    </Box>
-  )
+    )
 }
 
 export default Wrapper
