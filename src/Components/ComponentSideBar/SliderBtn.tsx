@@ -57,13 +57,13 @@ const SliderBtn: FC = () => {
     : sideBarToggle
     ? css`
         right: 0;
-        var(--animation-default);
+        transition: 0.5s ease;
       `
     : css`
         right: 0;
         transform: translateX(100%);
         cursor: pointer;
-        var(--animation-default);
+        transition: 0.5s ease;
       `;
 
   return (
