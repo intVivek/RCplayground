@@ -21,11 +21,11 @@ const SideBar: FC = () => {
     ? css`
         width: 100%;
         transform: translateX(${sideBarToggle ? "0" : "-100%"});
-        transition: 0.5s ease;
+        transition: var(--animation-default);
       `
     : css`
         width: min(35%, 250px);
-        transition: 0.5s ease;
+        transition: var(--animation-default);
       `;
 
   return (

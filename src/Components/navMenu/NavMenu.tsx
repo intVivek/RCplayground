@@ -33,7 +33,7 @@ const NavMenu: FC = () => {
       display={"flex"}
       bg={isOpen ? "#000000cc" : "transparent"}
       className={css`
-        transition: 0.3s ease;
+        transition: var(--animation-fast);
       `}
       overflow="hidden"
       onClick={toggleHandler}
