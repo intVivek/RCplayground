@@ -6,7 +6,7 @@ import SearchBar from "./SearchBar";
 
 const ScrollableSideBar: FC = () => (
   <Scrollable vertical>
-    <Box flexGrow={1} bg={"#f6f9fc"}>
+    <Box flexGrow="1" bg={"var(--primaryBackgroundColor)"}>
       <SearchBar />
     </Box>
   </Scrollable>

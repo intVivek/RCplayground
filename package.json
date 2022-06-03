@@ -10,6 +10,7 @@
     "@rocket.chat/fuselage-polyfills": "^0.31.12",
     "@rocket.chat/fuselage-tokens": "^0.31.12",
     "@rocket.chat/icons": "^0.31.13",
+    "@rocket.chat/logo": "^0.31.13",
     "@types/jest": "^27.5.1",
     "@types/node": "^16.11.36",
     "@types/react": "^18.0.9",

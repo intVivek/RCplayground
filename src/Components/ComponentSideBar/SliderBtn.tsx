@@ -28,7 +28,7 @@ const SliderBtn: FC = () => {
           0 10%
         );
         cursor: pointer;
-        transition: 0.5s ease;
+        transition: var(--animation-default);
       `
     : css`
         clip-path: polygon(
@@ -46,7 +46,7 @@ const SliderBtn: FC = () => {
           13% 50%
         );
         transform: rotate(180deg);
-        transition: 0.5s ease;
+        transition: var(--animation-default);
       `;
 
   // eslint-disable-next-line no-nested-ternary
@@ -57,13 +57,13 @@ const SliderBtn: FC = () => {
     : sideBarToggle
     ? css`
         right: 0;
-        transition: 0.5s ease;
+        var(--animation-default);
       `
     : css`
         right: 0;
         transform: translateX(100%);
         cursor: pointer;
-        transition: 0.5s ease;
+        var(--animation-default);
       `;
 
   return (

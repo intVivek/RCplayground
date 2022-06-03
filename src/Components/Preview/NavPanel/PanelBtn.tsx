@@ -3,7 +3,7 @@ import { Button, Avatar, Label } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useState } from "react";
 
-const PannelBtn: FC<{ avatar: string; name: string; isSmall: boolean }> = ({
+const PanelBtn: FC<{ avatar: string; name: string; isSmall: boolean }> = ({
   avatar,
   name,
   isSmall,
@@ -35,4 +35,4 @@ const PannelBtn: FC<{ avatar: string; name: string; isSmall: boolean }> = ({
   );
 };
 
-export default PannelBtn;
+export default PanelBtn;

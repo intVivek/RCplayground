@@ -1,7 +1,7 @@
 import { Box } from "@rocket.chat/fuselage";
 import { useMediaQueries } from "@rocket.chat/fuselage-hooks";
 import type { FC } from "react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import ComponentSideBar from "../Components/ComponentSideBar";
@@ -34,7 +34,7 @@ const Playground: FC = () => {
       height={"100%"}
       flexDirection={"column"}
       overflow="hidden"
-      bg={"#f6f9fc"}
+      bg={"var(--primaryBackgroundColor)"}
     >
       <NavBar />
       {navMenuToggle && <NavMenu />}

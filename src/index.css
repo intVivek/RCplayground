@@ -16,3 +16,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --primaryBackgroundColor: #f6f9fc;
+  --white: #ffffff;
+  --animation-default:  0.5s ease;
+  --sidebar-width: min(35%, 250px);
+}
