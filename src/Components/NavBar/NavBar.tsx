@@ -1,33 +1,28 @@
-import React, { useState, FC } from 'react';
+import React, { FC } from 'react';
 import { Box, Tile, Flex } from '@rocket.chat/fuselage';
-import { css } from '@rocket.chat/css-in-js';
 
 import Logo from './Logo';
 import Divider from './Divider';
-import BurgerIcon from './BurgerIcon';
+import RightNavBtn from './RightNavBtn';
 
 const NabBar: FC = () => {
-	const [open, setOpen] = useState(false);
 
 	return (
 		<Flex.Container alignItems='center'>
 			<Box
 				position='relative'
 				width={'100%'}
-				height={'min(60px, 15vw)'}
+				height={'min(60px, 25vw)'}
 				is={Tile}
 				padding={'0px'}
-				zIndex={'100'}
+				zIndex={'3'}
 				elevation={'2'}
 			>
 				<Logo />
 				<Divider />
-				<Box position='absolute' className={css`right: 20px;`} onClick={() => setOpen(!open)}>
-					<BurgerIcon open={open} />
-				</Box>
+				<RightNavBtn />
 			</Box>
 		</Flex.Container>
-
 	)
 }
 

@@ -37,7 +37,7 @@ const SideBar: FC = () => {
 			elevation={'1'}
 		>
 			<ScrollableSideBar />
-			{isMobile && <SliderBtn />}
+			<SliderBtn />
 		</Box>
 	)
 }

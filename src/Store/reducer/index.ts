@@ -1,6 +1,6 @@
 
 
-const rootReducer = (state = { isMobile: false, isTablet: false, sideBarToggle: false, editorToggle: false }, action: { type: String, payload: any }) => {
+const rootReducer = (state = { isMobile: false, isTablet: false, sideBarToggle: false, editorToggle: false, navMenuToggle: false }, action: { type: String, payload: any }) => {
 	switch (action.type) {
 		case "isMobile":
 			return { ...state, isMobile: action.payload };
@@ -10,6 +10,8 @@ const rootReducer = (state = { isMobile: false, isTablet: false, sideBarToggle: 
 			return { ...state, sideBarToggle: action.payload };
 		case "editorToggle":
 			return { ...state, editorToggle: action.payload };
+		case "navMenuToggle":
+			return { ...state, navMenuToggle: action.payload };
 		default:
 			return state;
 	}

@@ -16,6 +16,7 @@ const TabChange: FC = () => {
         border-right: none !important;
         border-top: none !important;
         box-shadow: none !important;
+        margin-right: 0 !important;
     `;
     return (
         <Box is={Tabs} className={disableBorder}>

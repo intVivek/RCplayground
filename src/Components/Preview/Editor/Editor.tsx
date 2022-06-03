@@ -20,6 +20,8 @@ const Editor: FC = () => {
 			width={isTablet ? '50%' : '40%'}
 			height={'100%'}
 			bg={'#f6f9fc'}
+			zIndex={3}
+			elevation='1'
 			className={editor}
 		>
 		</Box>

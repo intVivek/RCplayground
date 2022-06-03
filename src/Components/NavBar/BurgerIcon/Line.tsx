@@ -2,11 +2,11 @@ import { css } from '@rocket.chat/css-in-js';
 import { Box } from '@rocket.chat/fuselage';
 import React, { ReactElement } from 'react';
 
-const Line = ({ animated, moved }: { animated: boolean; moved?: boolean }): ReactElement => {
+const Line = ({ animated, moved }: { animated: boolean; moved?: Boolean }): ReactElement => {
 	const animatedStyle = animated
 		? css`
 				will-change: transform;
-				transition: transform 0.2s ease-out;
+				transition: transform 0.1s ease-out;
 		  `
 		: '';
 

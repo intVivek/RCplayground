@@ -1,22 +1,19 @@
 import { Box } from '@rocket.chat/fuselage';
-import {css} from '@rocket.chat/css-in-js';
 import React, { ReactElement, ReactNode } from 'react';
+
 
 const Wrapper = ({ children }: { children: ReactNode }): ReactElement => (
 
 	<Box
-		is='span'
+		paddingBlockStart='80px'
 		display='inline-flex'
 		flexDirection='column'
 		alignItems='center'
 		justifyContent='space-between'
-		paddingBlock='x4'
-		paddingInline='x2'
 		verticalAlign='middle'
 		children={children}
-		height='x24'
-		className={css`cursor: pointer;`}
-		width='x24'
+		height='max-content'
+		width='100%'
 	/>
 );
 

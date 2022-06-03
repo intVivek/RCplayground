@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { Scrollable, Box } from '@rocket.chat/fuselage';
+import SearchBar from './SearchBar';
 
 const ScrollableSideBar: FC = () => {
 	return (
@@ -8,6 +9,7 @@ const ScrollableSideBar: FC = () => {
 				flexGrow={1}
 				bg={'#f6f9fc'}
 			>
+				<SearchBar />
 			</Box>
 		</Scrollable>
 	)
