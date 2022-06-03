@@ -1,4 +1,5 @@
 import "./App.css";
+import "./cssVariables.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Playground from "./Pages/Playground";
