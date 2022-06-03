@@ -1,11 +1,9 @@
 type action = {
-    type: string,
-    payload: Boolean
-}
-
-export const isMobileAction: Function = (payload: Boolean): action => {
-    return {
-        type: "isMobile",
-        payload: payload
-    };
+  type: string;
+  payload: boolean;
 };
+
+export const isMobileAction = (payload: boolean): action => ({
+  type: "isMobile",
+  payload,
+});

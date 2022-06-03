@@ -48,5 +48,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.18.2",
+    "@rocket.chat/eslint-config-alt": "^0.31.13",
+    "eslint": "^8.16.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.6.2"
   }
 }

@@ -1,11 +1,9 @@
 type action = {
-    type: string;
-    payload: Boolean;
-}
-
-export const editorToggleAction: Function = (payload: Boolean): action => {
-    return {
-        type: "editorToggle",
-        payload: payload
-    };
+  type: string;
+  payload: boolean;
 };
+
+export const editorToggleAction = (payload: boolean): action => ({
+  type: "editorToggle",
+  payload,
+});

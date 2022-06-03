@@ -1,18 +1,15 @@
-import React, { FC } from 'react'
-import { Scrollable, Box } from '@rocket.chat/fuselage';
-import SearchBar from './SearchBar';
+import { Scrollable, Box } from "@rocket.chat/fuselage";
+import type { FC } from "react";
+import React from "react";
 
-const ScrollableSideBar: FC = () => {
-	return (
-		<Scrollable vertical>
-			<Box
-				flexGrow={1}
-				bg={'#f6f9fc'}
-			>
-				<SearchBar />
-			</Box>
-		</Scrollable>
-	)
-}
+import SearchBar from "./SearchBar";
 
-export default ScrollableSideBar
+const ScrollableSideBar: FC = () => (
+  <Scrollable vertical>
+    <Box flexGrow={1} bg={"#f6f9fc"}>
+      <SearchBar />
+    </Box>
+  </Scrollable>
+);
+
+export default ScrollableSideBar;

@@ -1,45 +1,46 @@
-import React, { FC, useEffect } from 'react';
-import { Box } from '@rocket.chat/fuselage';
-import { css } from '@rocket.chat/css-in-js';
-import { useDispatch, useSelector } from 'react-redux';
+import { css } from "@rocket.chat/css-in-js";
+import { Box } from "@rocket.chat/fuselage";
+import type { FC } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import ScrollableSideBar from './ScrollableSideBar';
-import SliderBtn from './SliderBtn';
-import { stateType } from '../../Store';
-import { sidebarToggleAction } from '../../Store/action';
+import type { stateType } from "../../Store";
+import { sidebarToggleAction } from "../../Store/action";
+import ScrollableSideBar from "./ScrollableSideBar";
+import SliderBtn from "./SliderBtn";
 
 const SideBar: FC = () => {
+  const { isMobile, sideBarToggle } = useSelector((state: stateType) => state);
+  const dispatch = useDispatch();
 
-	const { isMobile, sideBarToggle } = useSelector((state: stateType) => state);
-	const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(sidebarToggleAction(false));
+  }, [isMobile, dispatch]);
 
-	useEffect(() => {
-		dispatch(sidebarToggleAction(false));
-	}, [isMobile, dispatch]);
-
-	const slide = isMobile
-		? css`
-			width: 100%;
-			transform: translateX(${sideBarToggle ? '0' : '-100%'});
-			transition: 0.5s ease;
-		`: css`
-			width: min(35%, 250px);
-			transition: 0.5s ease;
+  const slide = isMobile
+    ? css`
+        width: 100%;
+        transform: translateX(${sideBarToggle ? "0" : "-100%"});
+        transition: 0.5s ease;
+      `
+    : css`
+        width: min(35%, 250px);
+        transition: 0.5s ease;
       `;
 
-	return (
-		<Box
-			position={'absolute'}
-			height={'100%'}
-			display={'flex'}
-			zIndex={1}
-			className={[slide]}
-			elevation={'1'}
-		>
-			<ScrollableSideBar />
-			<SliderBtn />
-		</Box>
-	)
-}
+  return (
+    <Box
+      position={"absolute"}
+      height={"100%"}
+      display={"flex"}
+      zIndex={1}
+      className={[slide]}
+      elevation={"1"}
+    >
+      <ScrollableSideBar />
+      <SliderBtn />
+    </Box>
+  );
+};
 
-export default SideBar
+export default SideBar;
