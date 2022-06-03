@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/RCplayground/static/css/main.2a706d5d.css",
+    "main.js": "/RCplayground/static/js/main.66f3b3d4.js",
+    "index.html": "/RCplayground/index.html",
+    "main.2a706d5d.css.map": "/RCplayground/static/css/main.2a706d5d.css.map",
+    "main.66f3b3d4.js.map": "/RCplayground/static/js/main.66f3b3d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a706d5d.css",
+    "static/js/main.66f3b3d4.js"
+  ]
+}
