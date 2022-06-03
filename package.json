@@ -1,4 +1,5 @@
 {
+  "homepage": "https://intvivek.github.io/RCplayground",
   "name": "demo",
   "version": "0.1.0",
   "private": true,
@@ -27,6 +28,8 @@
     "webpack": "^5.72.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,6 +58,7 @@
     "@rocket.chat/eslint-config-alt": "^0.31.13",
     "eslint": "^8.16.0",
     "eslint-plugin-import": "^2.26.0",
+    "gh-pages": "^4.0.0",
     "prettier": "^2.6.2"
   }
 }
