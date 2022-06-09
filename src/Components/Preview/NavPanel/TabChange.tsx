@@ -1,5 +1,5 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Box, Tabs } from "@rocket.chat/fuselage";
+import { Tabs } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,14 +12,14 @@ const TabChange: FC = () => {
   const dispatch = useDispatch();
 
   const disableBorder = css`
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
-    box-shadow: none !important;
-    margin-right: 0 !important;
+    // border-left: none !important;
+    // border-right: none !important;
+    // border-top: none !important;
+    // box-shadow: none !important;
+    // margin-right: 0 !important;
   `;
   return (
-    <Box is={Tabs} className={disableBorder}>
+    <Tabs>
       <Tabs.Item
         selected={!editorToggle}
         onClick={() => dispatch(editorToggleAction(false))}
@@ -34,7 +34,7 @@ const TabChange: FC = () => {
       >
         Editor
       </Tabs.Item>
-    </Box>
+    </Tabs>
   );
 };
 
