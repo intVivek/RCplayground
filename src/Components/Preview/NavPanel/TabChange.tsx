@@ -12,11 +12,11 @@ const TabChange: FC = () => {
   const dispatch = useDispatch();
 
   const disableBorder = css`
-    // border-left: none !important;
-    // border-right: none !important;
-    // border-top: none !important;
-    // box-shadow: none !important;
-    // margin-right: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    margin-right: 0 !important;
   `;
   return (
     <Tabs>
@@ -30,7 +30,7 @@ const TabChange: FC = () => {
       <Tabs.Item
         selected={!!editorToggle}
         onClick={() => dispatch(editorToggleAction(true))}
-        className={disableBorder}
+        // className={disableBorder}
       >
         Editor
       </Tabs.Item>
