@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/RCplayground/static/css/main.52bcc670.css",
-    "main.js": "/RCplayground/static/js/main.229e42be.js",
+    "main.js": "/RCplayground/static/js/main.d052231f.js",
     "index.html": "/RCplayground/index.html",
     "main.52bcc670.css.map": "/RCplayground/static/css/main.52bcc670.css.map",
-    "main.229e42be.js.map": "/RCplayground/static/js/main.229e42be.js.map"
+    "main.d052231f.js.map": "/RCplayground/static/js/main.d052231f.js.map"
   },
   "entrypoints": [
     "static/css/main.52bcc670.css",
-    "static/js/main.229e42be.js"
+    "static/js/main.d052231f.js"
   ]
 }
