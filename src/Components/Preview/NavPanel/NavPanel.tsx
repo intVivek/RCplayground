@@ -1,5 +1,5 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Box, ButtonGroup } from "@rocket.chat/fuselage";
+import { Box, ButtonGroup, Icon } from "@rocket.chat/fuselage";
 import keys from "@rocket.chat/icons";
 import React from "react";
 import type { FC } from "react";
@@ -49,6 +49,7 @@ const NavPanel: FC = () => {
         </ButtonGroup>
       )}
       {/* Icon added for testing */}
+      <Icon key={"copy"} name={"copy"} size="x40" />
       {isTablet && <TabChange />}
     </Box>
   );
