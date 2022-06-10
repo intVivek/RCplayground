@@ -23,7 +23,7 @@ const TabChange: FC = () => {
       <Tabs.Item
         selected={!editorToggle}
         onClick={() => dispatch(editorToggleAction(false))}
-        className={disableBorder}
+        className={disableBorder}  // Border removed for testing
       >
         Preview
       </Tabs.Item>
