@@ -1,17 +1,19 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box } from "@rocket.chat/fuselage";
 import type { FC } from "react";
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState, useContext } from "react";
 
-import type { stateType } from "../../Store";
-import { navMenuToggleAction } from "../../Store/action";
+import { context } from "../../Context";
+import { navMenuToggleAction } from "../../Context/action";
 import Menu from "./Menu";
 
 const NavMenu: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { navMenuToggle } = useSelector((state: stateType) => state);
-  const dispatch = useDispatch();
+
+  const {
+    state: { navMenuToggle },
+    dispatch,
+  } = useContext(context);
 
   useEffect(() => {
     setIsOpen(navMenuToggle);

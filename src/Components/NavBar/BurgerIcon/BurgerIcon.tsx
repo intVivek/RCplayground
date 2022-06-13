@@ -1,15 +1,16 @@
 import { usePrefersReducedMotion } from "@rocket.chat/fuselage-hooks";
 import type { ReactElement, ReactNode } from "react";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
 
-import type { stateType } from "../../../Store";
+import { context } from "../../../Context";
 import Line from "./Line";
 import Wrapper from "./Wrapper";
 
 const BurgerIcon = ({ children }: { children?: ReactNode }): ReactElement => {
   const isReducedMotionPreferred = usePrefersReducedMotion();
-  const { navMenuToggle } = useSelector((state: stateType) => state);
+  const {
+    state: { navMenuToggle },
+  } = useContext(context);
 
   return (
     <Wrapper>

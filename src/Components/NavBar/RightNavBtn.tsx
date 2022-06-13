@@ -1,16 +1,17 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box, Button } from "@rocket.chat/fuselage";
 import type { FC } from "react";
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useContext } from "react";
 
-import type { stateType } from "../../Store";
-import { navMenuToggleAction } from "../../Store/action/navMenuToggleAction";
+import { context } from "../../Context";
+import { navMenuToggleAction } from "../../Context/action/navMenuToggleAction";
 import BurgerIcon from "./BurgerIcon";
 
 const RightNavBtn: FC = () => {
-  const dispatch = useDispatch();
-  const { isMobile } = useSelector((state: stateType) => state);
+  const {
+    state: { isMobile },
+    dispatch,
+  } = useContext(context);
 
   return (
     <Box

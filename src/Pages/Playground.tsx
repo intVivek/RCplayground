@@ -1,23 +1,25 @@
 import { Box } from "@rocket.chat/fuselage";
 import { useMediaQueries } from "@rocket.chat/fuselage-hooks";
 import type { FC } from "react";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useContext } from "react";
 
 import ComponentSideBar from "../Components/ComponentSideBar";
 import NavBar from "../Components/NavBar";
 import Preview from "../Components/Preview";
 import NavMenu from "../Components/navMenu";
-import type { stateType } from "../Store";
-import { isMobileAction, isTabletAction } from "../Store/action";
+import { context } from "../Context";
+import { isMobileAction, isTabletAction } from "../Context/action";
 
 const Playground: FC = () => {
-  const { navMenuToggle } = useSelector((state: stateType) => state);
+  const {
+    state: { navMenuToggle },
+    dispatch,
+  } = useContext(context);
+
   const [isMobile, isTablet] = useMediaQueries(
     "(max-width: 500px)",
     "(max-width: 1050px)"
   );
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(isMobileAction(isMobile));

@@ -1,15 +1,16 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Tabs } from "@rocket.chat/fuselage";
 import type { FC } from "react";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext } from "react";
 
-import type { stateType } from "../../../Store";
-import { editorToggleAction } from "../../../Store/action";
+import { context } from "../../../Context";
+import { editorToggleAction } from "../../../Context/action";
 
 const TabChange: FC = () => {
-  const { editorToggle } = useSelector((state: stateType) => state);
-  const dispatch = useDispatch();
+  const {
+    state: { editorToggle },
+    dispatch,
+  } = useContext(context);
 
   const disableBorder = css`
     border-left: none !important;
@@ -23,14 +24,14 @@ const TabChange: FC = () => {
       <Tabs.Item
         selected={!editorToggle}
         onClick={() => dispatch(editorToggleAction(false))}
-        className={disableBorder} // Border removed for testing
+        className={disableBorder}
       >
         Preview
       </Tabs.Item>
       <Tabs.Item
-        selected={!!editorToggle}
+        selected={editorToggle}
         onClick={() => dispatch(editorToggleAction(true))}
-        // className={disableBorder}
+        className={disableBorder}
       >
         Editor
       </Tabs.Item>

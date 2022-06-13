@@ -1,20 +1,16 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Box, ButtonGroup, Icon } from "@rocket.chat/fuselage";
-import keys from "@rocket.chat/icons";
-import React from "react";
+import { Box, ButtonGroup } from "@rocket.chat/fuselage";
+import React, { useContext } from "react";
 import type { FC } from "react";
-import { useSelector } from "react-redux";
 
-import type { stateType } from "../../../Store";
-// import copy from "../../assets/icon/copy.svg";
-// import file from "../../assets/icon/file.svg";
+import { context } from "../../../Context";
 import PanelBtn from "./PanelBtn";
 import TabChange from "./TabChange";
 
 const NavPanel: FC = () => {
-  const { isMobile, isTablet } = useSelector((state: stateType) => state);
-
-  console.log(`${keys.copy}`);
+  const {
+    state: { isMobile, isTablet },
+  } = useContext(context);
   return (
     <Box
       width={"100%"}
@@ -48,8 +44,6 @@ const NavPanel: FC = () => {
           />
         </ButtonGroup>
       )}
-      {/* Icon added for testing */}
-      <Icon key={"copy"} name={"copy"} size="x40" />
       {isTablet && <TabChange />}
     </Box>
   );

@@ -1,14 +1,14 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box } from "@rocket.chat/fuselage";
 import type { FC } from "react";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
 
-import type { stateType } from "../../../Store";
+import { context } from "../../../Context";
 
 const Editor: FC = () => {
-  const { isTablet } = useSelector((state: stateType) => state);
-
+  const {
+    state: { isTablet },
+  } = useContext(context);
   const editor = css``;
 
   return (

@@ -1,16 +1,15 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
 
-import type { stateType } from "../../Store";
+import { context } from "../../Context";
 import Display from "./Display";
 import Editor from "./Editor";
 
-const Wrapper: FC = () => {
-  const { isTablet, editorToggle } = useSelector((state: stateType) => state);
-
+const Wrapper = () => {
+  const {
+    state: { isTablet, editorToggle },
+  } = useContext(context);
   return (
     <Box position="relative" width={"100%"} flexGrow={1}>
       <Box

@@ -1,16 +1,16 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box, Label } from "@rocket.chat/fuselage";
 import type { FC } from "react";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useContext } from "react";
 
-import type { stateType } from "../../Store";
-import { sidebarToggleAction } from "../../Store/action";
+import { context } from "../../Context";
+import { sidebarToggleAction } from "../../Context/action";
 
 const SliderBtn: FC = () => {
-  const { isMobile, sideBarToggle } = useSelector((state: stateType) => state);
-  const dispatch = useDispatch();
-
+  const {
+    state: { sideBarToggle, isMobile },
+    dispatch,
+  } = useContext(context);
   const slideBtnAnimation = sideBarToggle
     ? css`
         clip-path: polygon(
