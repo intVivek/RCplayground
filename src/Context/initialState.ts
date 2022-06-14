@@ -2,7 +2,7 @@ export type initialStateType = {
   isMobile: boolean;
   isTablet: boolean;
   sideBarToggle: boolean;
-  editorToggle: boolean;
+  tabsToggle: number;
   navMenuToggle: boolean;
 };
 
@@ -10,6 +10,6 @@ export const initialState = {
   isMobile: false,
   isTablet: false,
   sideBarToggle: false,
-  editorToggle: false,
+  tabsToggle: 0,
   navMenuToggle: false,
 };

@@ -1,5 +1,5 @@
 export { isMobileAction } from "./isMobileAction";
 export { isTabletAction } from "./isTabletAction";
 export { sidebarToggleAction } from "./sidebarToggleAction";
-export { editorToggleAction } from "./editorToggleAction";
+export { tabsToggleAction } from "./tabsToggleAction";
 export { navMenuToggleAction } from "./navMenuToggleAction";

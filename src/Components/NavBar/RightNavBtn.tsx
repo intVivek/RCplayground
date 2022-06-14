@@ -3,8 +3,7 @@ import { Box, Button } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useContext } from "react";
 
-import { context } from "../../Context";
-import { navMenuToggleAction } from "../../Context/action/navMenuToggleAction";
+import { context, navMenuToggleAction } from "../../Context";
 import BurgerIcon from "./BurgerIcon";
 
 const RightNavBtn: FC = () => {

@@ -3,12 +3,11 @@ import { Tabs } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useContext } from "react";
 
-import { context } from "../../../Context";
-import { editorToggleAction } from "../../../Context/action";
+import { context, tabsToggleAction } from "../../../Context";
 
-const TabChange: FC = () => {
+const TabChange: FC<{ tabsItem: string[] }> = ({ tabsItem }) => {
   const {
-    state: { editorToggle },
+    state: { tabsToggle },
     dispatch,
   } = useContext(context);
 
@@ -21,20 +20,15 @@ const TabChange: FC = () => {
   `;
   return (
     <Tabs>
-      <Tabs.Item
-        selected={!editorToggle}
-        onClick={() => dispatch(editorToggleAction(false))}
-        className={disableBorder}
-      >
-        Preview
-      </Tabs.Item>
-      <Tabs.Item
-        selected={editorToggle}
-        onClick={() => dispatch(editorToggleAction(true))}
-        className={disableBorder}
-      >
-        Editor
-      </Tabs.Item>
+      {tabsItem.map((item: string, index: number) => (
+        <Tabs.Item
+          key={index}
+          selected={tabsToggle === index}
+          onClick={() => dispatch(tabsToggleAction(index))}
+          className={disableBorder}
+          children={item}
+        />
+      ))}
     </Tabs>
   );
 };

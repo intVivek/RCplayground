@@ -3,8 +3,7 @@ import { Box, Label } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useContext } from "react";
 
-import { context } from "../../Context";
-import { sidebarToggleAction } from "../../Context/action";
+import { context, sidebarToggleAction } from "../../Context";
 
 const SliderBtn: FC = () => {
   const {

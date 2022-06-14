@@ -11,6 +11,8 @@ const NavPanel: FC = () => {
   const {
     state: { isMobile, isTablet },
   } = useContext(context);
+
+  const tabsItem: string[] = ["Preview", "Editor"];
   return (
     <Box
       width={"100%"}
@@ -44,7 +46,7 @@ const NavPanel: FC = () => {
           />
         </ButtonGroup>
       )}
-      {isTablet && <TabChange />}
+      {isTablet && <TabChange tabsItem={tabsItem} />}
     </Box>
   );
 };

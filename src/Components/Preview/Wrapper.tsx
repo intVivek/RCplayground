@@ -8,8 +8,23 @@ import Editor from "./Editor";
 
 const Wrapper = () => {
   const {
-    state: { isTablet, editorToggle },
+    state: { isTablet, tabsToggle },
   } = useContext(context);
+
+  const tabChangeStyle = () => {
+    switch (tabsToggle) {
+      case 0:
+        return css`
+          transition: 0.5s ease;
+          transform: translateX(0%);
+        `;
+      case 1:
+        return css`
+          transition: 0.5s ease;
+          transform: translateX(-50%);
+        `;
+    }
+  };
   return (
     <Box position="relative" width={"100%"} flexGrow={1}>
       <Box
@@ -17,17 +32,7 @@ const Wrapper = () => {
         width={isTablet ? "200%" : "100%"}
         height={"100%"}
         display={"flex"}
-        className={
-          editorToggle
-            ? css`
-                transition: 0.5s ease;
-                transform: translateX(-50%);
-              `
-            : css`
-                transition: 0.5s ease;
-                transform: translateX(0%);
-              `
-        }
+        className={tabChangeStyle()}
       >
         <Display />
         <Editor />

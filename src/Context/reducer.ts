@@ -1,13 +1,8 @@
-const rootReducer = (
-  state = {
-    isMobile: false,
-    isTablet: false,
-    sideBarToggle: false,
-    editorToggle: false,
-    navMenuToggle: false,
-  },
-  action: { type: string; payload: any }
-) => {
+import type { initialStateType } from "./initialState";
+
+type actionType = { type: string; payload: any };
+
+const reducer = (state: initialStateType, action: actionType) => {
   switch (action.type) {
     case "isMobile":
       return { ...state, isMobile: action.payload };
@@ -16,11 +11,11 @@ const rootReducer = (
     case "sidebarToggle":
       return { ...state, sideBarToggle: action.payload };
     case "editorToggle":
-      return { ...state, editorToggle: action.payload };
+      return { ...state, tabsToggle: action.payload };
     case "navMenuToggle":
       return { ...state, navMenuToggle: action.payload };
     default:
       return state;
   }
 };
-export default rootReducer;
+export default reducer;
