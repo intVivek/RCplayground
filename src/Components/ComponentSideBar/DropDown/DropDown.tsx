@@ -10,27 +10,29 @@ interface DropDownProps {
 }
 
 const DropDown = ({ listMeta, onSelectCallback }: DropDownProps) => {
-  const recursiveComponentTree = (branch: ItemBranch) => (
+  const layer = 1;
+
+  const recursiveComponentTree = (branch: ItemBranch, layer: number) => (
     <Items
-      id={branch.id}
-      key={branch.id}
       onSelectCallback={() => {
         onSelectCallback(branch);
       }}
-      isSelected={branch.selected}
+      layer={layer}
       label={branch.label}
     >
       {branch.branches &&
-        branch.branches.map((branch: ItemBranch) => (
-          <Fragment key={branch.id}>{recursiveComponentTree(branch)}</Fragment>
+        branch.branches.map((branch: ItemBranch, index: number) => (
+          <Fragment key={index}>
+            {recursiveComponentTree(branch, layer + 1)}
+          </Fragment>
         ))}
     </Items>
   );
 
   return (
     <Box>
-      {listMeta.map((branch: ItemBranch, i: any) => (
-        <Box key={i}>{recursiveComponentTree(branch)}</Box>
+      {listMeta.map((branch: ItemBranch, i: number) => (
+        <Box key={i}>{recursiveComponentTree(branch, layer)}</Box>
       ))}
     </Box>
   );

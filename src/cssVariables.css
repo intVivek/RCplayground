@@ -3,5 +3,6 @@
     --white: #ffffff;
     --animation-default:  0.5s ease;
     --animation-fast:  0.3s ease;
+    --animation-very-fast:  0.1s ease;
     --sidebar-width: min(35%, 250px);
   }

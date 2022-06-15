@@ -1,41 +1,62 @@
-import { Box } from "@rocket.chat/fuselage";
+import { css } from "@rocket.chat/css-in-js";
+import { Box, Avatar, Label } from "@rocket.chat/fuselage";
 import React, { useState } from "react";
 
+import { capitalize, capitalizeWhole } from "../../../Utils";
+import itemStyle from "./itemsStyle";
+
 type ItemProps = {
-  id: string;
   onSelectCallback: (e: React.MouseEvent<HTMLInputElement>) => void;
   label: string;
-  isSelected: boolean | undefined;
+  layer: number;
   children?: ReadonlyArray<JSX.Element>;
 };
 
-const Items = ({
-  onSelectCallback,
-  label,
-  isSelected,
-  children,
-}: ItemProps) => {
-  const [isOpen, toggleItemOpen] = useState<boolean>(isSelected || false);
+const Items = ({ onSelectCallback, label, children, layer }: ItemProps) => {
+  const [isOpen, toggleItemOpen] = useState<boolean>(!layer || false);
+  const chevron =
+    "https://raw.githubusercontent.com/RocketChat/fuselage/8e5b4afbb0954d2e6ca36fbd8bf2580bc64d53ab/packages/icons/src/chevron-left.dir.svg";
 
   return (
-    <Box>
+    <Box mbe={layer === 1 ? "10px" : "0px"}>
       <Box
         display="flex"
-        flexDirection="row"
         alignItems="center"
+        pis={`${layer * 10}px`}
+        className={itemStyle(layer)}
         onClick={() => toggleItemOpen(!isOpen)}
       >
-        {children && children.length > 0 && <Box>{isOpen ? "v" : ">"}</Box>}
+        <Box size={16}>
+          {children && children.length > 0 && (
+            <Box
+              display={"flex"}
+              alignItems={"center"}
+              className={css`
+                transform: rotate(${isOpen ? "90deg" : "0deg"});
+                transition: var(--animation-very-fast);
+              `}
+            >
+              <Avatar size="x16" url={chevron} />
+            </Box>
+          )}
+        </Box>
         <Box
           height="24px"
           onClick={(e: React.MouseEvent<HTMLInputElement>) => {
             onSelectCallback(e);
           }}
         >
-          {label}
+          <Label
+            fontSize={12}
+            fontWeight={layer === 1 ? 800 : 500}
+            letterSpacing={layer === 1 ? "0.15em" : "0.05em"}
+            color={layer === 1 ? "hint" : "info"}
+          >
+            {layer === 1 ? capitalizeWhole(label) : capitalize(label)}
+          </Label>
         </Box>
       </Box>
-      <Box pis="10px">{isOpen && children}</Box>
+      <Box>{isOpen && children}</Box>
     </Box>
   );
 };
