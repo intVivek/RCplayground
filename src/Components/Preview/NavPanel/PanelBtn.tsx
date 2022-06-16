@@ -1,14 +1,16 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Button, Avatar, Label } from "@rocket.chat/fuselage";
-import type { FC } from "react";
+import { Button, Label } from "@rocket.chat/fuselage";
+import nameToCharacterMapping from "@rocket.chat/icons";
+import type { FC, ReactNode } from "react";
 import React, { useState } from "react";
 
-const PanelBtn: FC<{ avatar: string; name: string; isSmall: boolean }> = ({
-  avatar,
+const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
+  icon,
   name,
   isSmall,
 }) => {
   const [hover, setHover] = useState(false);
+  console.log(nameToCharacterMapping);
 
   const style = css`
     width: ${hover ? "100%" : "0px"};
@@ -24,7 +26,7 @@ const PanelBtn: FC<{ avatar: string; name: string; isSmall: boolean }> = ({
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
-        <Avatar size="x16" url={avatar} />
+        {icon}
       </Button>
       <Label overflow={"hidden"} className={style} fontSize="x10">
         {name}

@@ -1,3 +1,4 @@
+import { css } from "@rocket.chat/css-in-js";
 import { Box, Tile, Flex } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React from "react";
@@ -16,6 +17,9 @@ const NabBar: FC = () => (
       padding={"0px"}
       zIndex={"3"}
       elevation={"2"}
+      className={css`
+        user-select: none;
+      `}
     >
       <Logo />
       <Divider />

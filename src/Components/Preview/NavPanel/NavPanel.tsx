@@ -3,6 +3,8 @@ import { Box, ButtonGroup } from "@rocket.chat/fuselage";
 import React, { useContext } from "react";
 import type { FC } from "react";
 
+import { ReactComponent as Copy } from "../../../Assets/Icon/copy.svg";
+import { ReactComponent as File } from "../../../Assets/Icon/file.svg";
 import { context } from "../../../Context";
 import PanelBtn from "./PanelBtn";
 import TabChange from "./TabChange";
@@ -22,6 +24,9 @@ const NavPanel: FC = () => {
       alignItems={"center"}
       justifyContent={isMobile ? "flex-end" : "space-between"}
       bg="alternative"
+      className={css`
+        user-select: none;
+      `}
     >
       {!isMobile && (
         <ButtonGroup
@@ -31,16 +36,12 @@ const NavPanel: FC = () => {
           `}
         >
           <PanelBtn
-            avatar={
-              "https://raw.githubusercontent.com/RocketChat/fuselage/db54ddd7ac78ec68bcab4f8cf521806f2c5c7984/packages/icons/src/file.dir.svg"
-            }
+            icon={<File width={16} />}
             name={"Clear Blocks"}
             isSmall={isTablet}
           />
           <PanelBtn
-            avatar={
-              "https://raw.githubusercontent.com/RocketChat/fuselage/db54ddd7ac78ec68bcab4f8cf521806f2c5c7984/packages/icons/src/copy.svg"
-            }
+            icon={<Copy width={16} />}
             name={"Copy Payload"}
             isSmall={isTablet}
           />

@@ -1,21 +1,20 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Box, Avatar, Label } from "@rocket.chat/fuselage";
+import { Box, Label } from "@rocket.chat/fuselage";
 import React, { useState } from "react";
 
+import { ReactComponent as Chevron } from "../../../Assets/Icon/chevron.svg";
 import { capitalize, capitalizeWhole } from "../../../Utils";
+import ItemsIcon from "./ItemsIcon";
 import itemStyle from "./itemsStyle";
 
 type ItemProps = {
-  onSelectCallback: (e: React.MouseEvent<HTMLInputElement>) => void;
   label: string;
   layer: number;
   children?: ReadonlyArray<JSX.Element>;
 };
 
-const Items = ({ onSelectCallback, label, children, layer }: ItemProps) => {
+const Items = ({ label, children, layer }: ItemProps) => {
   const [isOpen, toggleItemOpen] = useState<boolean>(!layer || false);
-  const chevron =
-    "https://raw.githubusercontent.com/RocketChat/fuselage/8e5b4afbb0954d2e6ca36fbd8bf2580bc64d53ab/packages/icons/src/chevron-left.dir.svg";
 
   return (
     <Box mbe={layer === 1 ? "10px" : "0px"}>
@@ -26,7 +25,7 @@ const Items = ({ onSelectCallback, label, children, layer }: ItemProps) => {
         className={itemStyle(layer)}
         onClick={() => toggleItemOpen(!isOpen)}
       >
-        <Box size={16}>
+        <Box size={16} display="flex" alignItems="center">
           {children && children.length > 0 && (
             <Box
               display={"flex"}
@@ -36,18 +35,15 @@ const Items = ({ onSelectCallback, label, children, layer }: ItemProps) => {
                 transition: var(--animation-very-fast);
               `}
             >
-              <Avatar size="x16" url={chevron} />
+              <Chevron style={{ width: "14px", height: "14px" }} />
             </Box>
           )}
         </Box>
-        <Box
-          height="24px"
-          onClick={(e: React.MouseEvent<HTMLInputElement>) => {
-            onSelectCallback(e);
-          }}
-        >
+        <Box height="24px" display="flex" alignItems="center">
+          {<ItemsIcon layer={layer} />}
           <Label
             fontSize={12}
+            pis="3px"
             fontWeight={layer === 1 ? 800 : 500}
             letterSpacing={layer === 1 ? "0.15em" : "0.05em"}
             color={layer === 1 ? "hint" : "info"}

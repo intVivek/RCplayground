@@ -17,11 +17,13 @@ const SideBar: FC = () => {
   const slide = state?.isMobile
     ? css`
         width: 100%;
+        user-select: none;
         transform: translateX(${state?.sideBarToggle ? "0" : "-100%"});
         transition: var(--animation-default);
       `
     : css`
         width: min(35%, 250px);
+        user-select: none;
         transition: var(--animation-default);
       `;
 

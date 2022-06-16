@@ -34,6 +34,7 @@ const NavMenu: FC = () => {
       display={"flex"}
       bg={isOpen ? "#000000cc" : "transparent"}
       className={css`
+        user-select: none;
         transition: var(--animation-fast);
       `}
       overflow="hidden"
