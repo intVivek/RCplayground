@@ -1,5 +1,7 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box } from "@rocket.chat/fuselage";
+// import * as uikit from "@rocket.chat/fuselage-ui-kit";
+// import * as UiKit from "@rocket.chat/ui-kit";
 import type { FC } from "react";
 import React, { useContext } from "react";
 
@@ -10,7 +12,6 @@ const Editor: FC = () => {
     state: { isTablet },
   } = useContext(context);
   const editor = css``;
-
   return (
     <Box
       width={isTablet ? "50%" : "40%"}

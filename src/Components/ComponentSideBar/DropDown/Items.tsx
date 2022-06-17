@@ -3,9 +3,8 @@ import { Box, Label } from "@rocket.chat/fuselage";
 import React, { useState } from "react";
 
 import { ReactComponent as Chevron } from "../../../Assets/Icon/chevron.svg";
-import { capitalize, capitalizeWhole } from "../../../Utils";
 import ItemsIcon from "./ItemsIcon";
-import itemStyle from "./itemsStyle";
+import { itemStyle, labelStyle } from "./itemsStyle";
 
 type ItemProps = {
   label: string;
@@ -14,14 +13,12 @@ type ItemProps = {
 };
 
 const Items = ({ label, children, layer }: ItemProps) => {
-  const [isOpen, toggleItemOpen] = useState<boolean>(!layer || false);
-
+  const [isOpen, toggleItemOpen] = useState<boolean>(layer === 1);
   return (
     <Box mbe={layer === 1 ? "10px" : "0px"}>
       <Box
         display="flex"
         alignItems="center"
-        pis={`${layer * 10}px`}
         className={itemStyle(layer)}
         onClick={() => toggleItemOpen(!isOpen)}
       >
@@ -35,21 +32,13 @@ const Items = ({ label, children, layer }: ItemProps) => {
                 transition: var(--animation-very-fast);
               `}
             >
-              <Chevron style={{ width: "14px", height: "14px" }} />
+              <Chevron width="12px" />
             </Box>
           )}
         </Box>
         <Box height="24px" display="flex" alignItems="center">
-          {<ItemsIcon layer={layer} />}
-          <Label
-            fontSize={12}
-            pis="3px"
-            fontWeight={layer === 1 ? 800 : 500}
-            letterSpacing={layer === 1 ? "0.15em" : "0.05em"}
-            color={layer === 1 ? "hint" : "info"}
-          >
-            {layer === 1 ? capitalizeWhole(label) : capitalize(label)}
-          </Label>
+          <ItemsIcon layer={layer} lastNode={children === undefined} />
+          <Label className={labelStyle(layer)}>{label}</Label>
         </Box>
       </Box>
       <Box>{isOpen && children}</Box>

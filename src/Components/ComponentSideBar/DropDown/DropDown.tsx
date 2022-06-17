@@ -5,10 +5,10 @@ import Items from "./Items";
 import type { Item, ItemBranch } from "./types";
 
 interface DropDownProps {
-  readonly listMeta: Item;
+  readonly BlocksTree: Item;
 }
 
-const DropDown = ({ listMeta }: DropDownProps) => {
+const DropDown = ({ BlocksTree }: DropDownProps) => {
   const layer = 1;
 
   const recursiveComponentTree = (branch: ItemBranch, layer: number) => (
@@ -24,7 +24,7 @@ const DropDown = ({ listMeta }: DropDownProps) => {
 
   return (
     <Box>
-      {listMeta.map((branch: ItemBranch, i: number) => (
+      {BlocksTree.map((branch: ItemBranch, i: number) => (
         <Box key={i}>{recursiveComponentTree(branch, layer)}</Box>
       ))}
     </Box>

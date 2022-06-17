@@ -1,6 +1,5 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Button, Label } from "@rocket.chat/fuselage";
-import nameToCharacterMapping from "@rocket.chat/icons";
 import type { FC, ReactNode } from "react";
 import React, { useState } from "react";
 
@@ -10,7 +9,6 @@ const PanelBtn: FC<{ icon: ReactNode; name: string; isSmall: boolean }> = ({
   isSmall,
 }) => {
   const [hover, setHover] = useState(false);
-  console.log(nameToCharacterMapping);
 
   const style = css`
     width: ${hover ? "100%" : "0px"};
