@@ -1,34 +1,65 @@
-export const select = [
-  {
-    type: "actions",
-    elements: [
-      {
-        type: "static_select",
-        actionId: "overflow_1",
-        initialValue: "option_2",
-        options: [
-          {
-            value: "option_1",
-            text: {
-              type: "plain_text",
-              text: "lorem ipsum 🚀",
-              emoji: true,
-            },
+export const singleSelect = {
+  type: "actions",
+  elements: [
+    {
+      type: "static_select",
+      actionId: "overflow_1",
+      initialValue: "option_2",
+      options: [
+        {
+          value: "option_1",
+          text: {
+            type: "plain_text",
+            text: "lorem ipsum 🚀",
+            emoji: true,
           },
-          {
-            value: "option_2",
-            text: {
-              type: "plain_text",
-              text: "lorem ipsum 🚀",
-              emoji: true,
-            },
-          },
-        ],
-        placeholder: {
-          type: "plain_text",
-          text: "Select an item",
         },
+        {
+          value: "option_2",
+          text: {
+            type: "plain_text",
+            text: "lorem ipsum 🚀",
+            emoji: true,
+          },
+        },
+      ],
+      placeholder: {
+        type: "plain_text",
+        text: "Select an item",
       },
-    ],
-  },
-] as const;
+    },
+  ],
+};
+
+export const multiSelect = {
+  type: "actions",
+  elements: [
+    {
+      type: "static_select",
+      actionId: "overflow_1",
+      initialValue: ["option_1", "option_2"],
+      options: [
+        {
+          value: "option_1",
+          text: {
+            type: "plain_text",
+            text: "lorem ipsum 🚀",
+            emoji: true,
+          },
+        },
+        {
+          value: "option_2",
+          text: {
+            type: "plain_text",
+            text: "lorem ipsum 🚀",
+            emoji: true,
+          },
+        },
+      ],
+      placeholder: {
+        type: "plain_text",
+        text: "Select an item",
+      },
+    },
+  ],
+};

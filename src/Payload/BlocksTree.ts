@@ -8,8 +8,20 @@ import {
   menu,
   singleLine,
   multiLine,
-  select,
+  singleSelect,
+  multiSelect,
+  datePicker,
+  linearScale,
 } from "./action";
+import {
+  plainText,
+  mrkdwn,
+  textFields,
+  sectionButtonDefault,
+  sectionButtonPrimary,
+  sectionButtonDanger,
+  sectionButtonAsLink,
+} from "./section";
 
 const BlocksTree: Item = [
   {
@@ -50,6 +62,19 @@ const BlocksTree: Item = [
         ],
       },
       {
+        label: "select",
+        branches: [
+          {
+            label: "Single Select",
+            payload: singleSelect,
+          },
+          {
+            label: "Multi Select",
+            payload: multiSelect,
+          },
+        ],
+      },
+      {
         label: "image",
         payload: image,
       },
@@ -58,14 +83,62 @@ const BlocksTree: Item = [
         payload: menu,
       },
       {
-        label: "select",
-        payload: select,
+        label: "date Picker",
+        payload: datePicker,
+      },
+      {
+        label: "linear scale",
+        payload: linearScale,
       },
     ],
   },
   {
     label: "section",
-    branches: [],
+    branches: [
+      {
+        label: "text",
+        branches: [
+          {
+            label: "plain text",
+            payload: plainText,
+          },
+          {
+            label: "mrkdwn",
+            payload: mrkdwn,
+          },
+          {
+            label: "text fields",
+            payload: textFields,
+          },
+        ],
+      },
+      {
+        label: "Accessory",
+        branches: [
+          {
+            label: "button",
+            branches: [
+              {
+                label: "default",
+                payload: sectionButtonDefault,
+              },
+              {
+                label: "primary",
+                payload: sectionButtonPrimary,
+              },
+              {
+                label: "danger",
+                payload: sectionButtonDanger,
+              },
+              {
+                label: "as Link",
+                payload: sectionButtonAsLink,
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     label: "preview",

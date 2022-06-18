@@ -1,66 +1,58 @@
-export const buttonDefault = [
-  {
-    type: "actions",
-    elements: [
-      {
-        type: "button",
-        text: {
-          type: "plain_text",
-          text: "Click Me",
-          emoji: true,
-        },
+export const buttonDefault = {
+  type: "actions",
+  elements: [
+    {
+      type: "button",
+      text: {
+        type: "plain_text",
+        text: "Click Me",
+        emoji: true,
       },
-    ],
-  },
-] as const;
+    },
+  ],
+};
 
-export const buttonPrimary = [
-  {
-    type: "actions",
-    elements: [
-      {
-        type: "button",
-        text: {
-          type: "plain_text",
-          text: "Click Me",
-          emoji: true,
-        },
-        style: "primary",
+export const buttonPrimary = {
+  type: "actions",
+  elements: [
+    {
+      type: "button",
+      text: {
+        type: "plain_text",
+        text: "Click Me",
+        emoji: true,
       },
-    ],
-  },
-] as const;
+      style: "primary",
+    },
+  ],
+};
 
-export const buttonDanger = [
-  {
-    type: "actions",
-    elements: [
-      {
-        type: "button",
-        text: {
-          type: "plain_text",
-          text: "Click Me",
-          emoji: true,
-        },
-        style: "danger",
+export const buttonDanger = {
+  type: "actions",
+  elements: [
+    {
+      type: "button",
+      text: {
+        type: "plain_text",
+        text: "Click Me",
+        emoji: true,
       },
-    ],
-  },
-] as const;
+      style: "danger",
+    },
+  ],
+};
 
-export const buttonAsLink = [
-  {
-    type: "actions",
-    elements: [
-      {
-        type: "button",
-        text: {
-          type: "plain_text",
-          text: "Click Me",
-          emoji: true,
-        },
-        url: "https://rocket.chat",
+export const buttonAsLink = {
+  type: "actions",
+  elements: [
+    {
+      type: "button",
+      text: {
+        type: "plain_text",
+        text: "Click Me",
+        emoji: true,
       },
-    ],
-  },
-] as const;
+      url: "https://rocket.chat",
+    },
+  ],
+};

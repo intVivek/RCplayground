@@ -1,73 +1,42 @@
 import { css } from "@rocket.chat/css-in-js";
 
-export const itemStyle = (layer: number) => {
-  let customStyle;
-  const basicStyle = css`
+export const itemStyle = (layer: number, hover: boolean) => {
+  const style = css`
     cursor: pointer;
     padding-left: ${10 + (layer - 1) * 16}px;
-    &:active {
-      background-color: #ffc0c0;
-    }
+    background-color: ${hover ? "#f5455c" : "transparent"};
   `;
-  switch (layer) {
-    case 1:
-      customStyle = css`
-        &:hover {
-          background-color: #ffe4e4;
-        }
-      `;
-      break;
-    case 2:
-      customStyle = css`
-        &:hover {
-          background-color: #ffebeb;
-        }
-      `;
-      break;
-    case 3:
-      customStyle = css`
-        &:hover {
-          background-color: #fff1f1;
-        }
-      `;
-      break;
-    default:
-      customStyle = css`
-        &:hover {
-          background-color: #f5f5f5;
-        }
-      `;
-      break;
-  }
-  return [customStyle, basicStyle];
+  return style;
 };
 
-export const labelStyle = (layer: number) => {
+export const labelStyle = (layer: number, hover: boolean) => {
   let customStyle;
   const basicStyle = css`
-    cursor: pointer;
-    font-szie: 12px;
-    padding-left: 4px;
+    cursor: pointer !important;
+    padding-left: 4px !important;
   `;
   switch (layer) {
     case 1:
       customStyle = css`
         font-weight: 700;
+        font-size: 14px;
         letter-spacing: 0.3px;
-        color: #999;
+        color: ${hover ? "#fff" : "#999"};
         text-transform: uppercase;
       `;
       break;
     case 2:
       customStyle = css`
         letter-spacing: 0.1px;
-        color: #555;
+        font-size: 12px;
+        color: ${hover ? "#fff" : "#555"};
         text-transform: capitalize;
       `;
       break;
     default:
       customStyle = css`
-        color: #555;
+        font-size: 12px;
+        color: ${hover ? "#fff" : "#555"};
         text-transform: capitalize;
       `;
       break;

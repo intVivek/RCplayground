@@ -9,18 +9,28 @@ import { itemStyle, labelStyle } from "./itemsStyle";
 type ItemProps = {
   label: string;
   layer: number;
+  payload?: object;
   children?: ReadonlyArray<JSX.Element>;
 };
 
-const Items = ({ label, children, layer }: ItemProps) => {
+const Items = ({ label, children, layer, payload }: ItemProps) => {
   const [isOpen, toggleItemOpen] = useState<boolean>(layer === 1);
+  const [hover, setHover] = useState<boolean>(false);
+
+  const itemClickHandler = () => {
+    toggleItemOpen(!isOpen);
+    payload && console.log(payload);
+  };
+
   return (
     <Box mbe={layer === 1 ? "10px" : "0px"}>
       <Box
         display="flex"
         alignItems="center"
-        className={itemStyle(layer)}
-        onClick={() => toggleItemOpen(!isOpen)}
+        className={itemStyle(layer, hover)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        onClick={itemClickHandler}
       >
         <Box size={16} display="flex" alignItems="center">
           {children && children.length > 0 && (
@@ -32,13 +42,17 @@ const Items = ({ label, children, layer }: ItemProps) => {
                 transition: var(--animation-very-fast);
               `}
             >
-              <Chevron width="12px" />
+              <Chevron width="12px" fill={hover ? "#fff" : "#000"} />
             </Box>
           )}
         </Box>
-        <Box height="24px" display="flex" alignItems="center">
-          <ItemsIcon layer={layer} lastNode={children === undefined} />
-          <Label className={labelStyle(layer)}>{label}</Label>
+        <Box height="25px" display="flex" alignItems="center">
+          <ItemsIcon
+            layer={layer}
+            hover={hover}
+            lastNode={children === undefined}
+          />
+          <Label className={labelStyle(layer, hover)}>{label}</Label>
         </Box>
       </Box>
       <Box>{isOpen && children}</Box>

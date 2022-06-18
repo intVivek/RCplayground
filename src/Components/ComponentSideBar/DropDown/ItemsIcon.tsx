@@ -1,31 +1,28 @@
 import React from "react";
 
 import { ReactComponent as Burger } from "../../../Assets/Icon/burger.svg";
+import { ReactComponent as Cube } from "../../../Assets/Icon/cube.svg";
 import { ReactComponent as Folder } from "../../../Assets/Icon/folder.svg";
-import { ReactComponent as Star } from "../../../Assets/Icon/star.svg";
 
 const ItemsIcon = ({
   layer,
   lastNode,
+  hover,
 }: {
   layer: number;
   lastNode: boolean;
+  hover: boolean;
 }) => {
-  const selectIcon = (layer: number) => {
-    switch (layer) {
-      case 1:
-        return <Folder width="12" fill="#1d74f5" />;
-      case 2:
-        return lastNode ? (
-          <Star width="12" fill="#f5455c" />
-        ) : (
-          <Burger width="12" fill="#19ac7c" />
-        );
-      case 3:
-        return <Star width="12" fill="#f5455c" />;
+  const selectIcon = (layer: number, hover: boolean) => {
+    if (layer === 1) {
+      return <Folder width="12" fill={hover ? "#fff" : "#1d74f5"} />;
     }
+    if (lastNode) {
+      return <Cube width="12" fill={hover ? "#fff" : "#f5455c"} />;
+    }
+    return <Burger width="12" fill={hover ? "#fff" : "#19ac7c"} />;
   };
-  return <>{selectIcon(layer)}</>;
+  return <>{selectIcon(layer, hover)}</>;
 };
 
 export default ItemsIcon;
