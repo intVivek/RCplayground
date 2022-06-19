@@ -1,4 +1,4 @@
-export const singleLine = {
+export const actionWithSingleLineInput = {
   type: "actions",
   elements: [
     {
@@ -15,7 +15,7 @@ export const singleLine = {
   ],
 };
 
-export const multiLine = {
+export const actionWithMultiLineInput = {
   type: "actions",
   elements: [
     {

@@ -1,4 +1,4 @@
-export const image = {
+export const actionWithImage = {
   type: "actions",
   elements: [
     {

@@ -22,6 +22,7 @@ const Preview: FC = () => {
       display={"flex"}
       flexGrow={1}
       bg="#fff"
+      zIndex={3}
       height={"100%"}
       flexDirection={"column"}
       pis={isMobile ? "" : "min(35%, 250px)"}

@@ -1,4 +1,4 @@
-export const menu = {
+export const actionWithMenu = {
   type: "actions",
   elements: [
     {

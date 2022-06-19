@@ -22,6 +22,7 @@ const NavPanel: FC = () => {
       borderBlockEnd="1px solid #e6e6e6"
       display={"flex"}
       alignItems={"center"}
+      zIndex={1}
       justifyContent={isMobile ? "flex-end" : "space-between"}
       bg="alternative"
       className={css`

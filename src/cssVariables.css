@@ -5,4 +5,6 @@
     --animation-fast:  0.3s ease;
     --animation-very-fast:  0.1s ease;
     --sidebar-width: min(35%, 250px);
+    --preview-left-box-shadow: 8px 0px 16px 0px rgb(47 52 61 / 55%);
+    --dropdown-box-shadow: inset -15px 15px 20px -30px rgb(47 52 61 / 55%);
   }

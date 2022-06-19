@@ -1,4 +1,4 @@
-export const buttonDefault = {
+export const actionWithButtonDefault = {
   type: "actions",
   elements: [
     {
@@ -12,7 +12,7 @@ export const buttonDefault = {
   ],
 };
 
-export const buttonPrimary = {
+export const actionWithButtonPrimary = {
   type: "actions",
   elements: [
     {
@@ -27,7 +27,7 @@ export const buttonPrimary = {
   ],
 };
 
-export const buttonDanger = {
+export const actionWithButtonDanger = {
   type: "actions",
   elements: [
     {
@@ -42,7 +42,7 @@ export const buttonDanger = {
   ],
 };
 
-export const buttonAsLink = {
+export const actionWithButtonAsLink = {
   type: "actions",
   elements: [
     {

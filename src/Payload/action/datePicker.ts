@@ -1,4 +1,4 @@
-export const datePicker = {
+export const actionWithDatePicker = {
   type: "actions",
   elements: [
     {

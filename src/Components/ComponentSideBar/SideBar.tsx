@@ -32,12 +32,12 @@ const SideBar: FC = () => {
       position={"absolute"}
       height={"100%"}
       display={"flex"}
-      zIndex={1}
+      zIndex={4}
+      bg="#fff"
       className={[slide]}
-      elevation={"1"}
     >
-      <ScrollableSideBar />
       <SliderBtn />
+      <ScrollableSideBar />
     </Box>
   );
 };

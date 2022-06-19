@@ -1,4 +1,4 @@
-export const sectionButtonDefault = {
+export const sectionWithButtonDefault = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -14,7 +14,7 @@ export const sectionButtonDefault = {
   },
 };
 
-export const sectionButtonPrimary = {
+export const sectionWithButtonPrimary = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -31,7 +31,7 @@ export const sectionButtonPrimary = {
   },
 };
 
-export const sectionButtonDanger = {
+export const sectionWithButtonDanger = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -48,7 +48,7 @@ export const sectionButtonDanger = {
   },
 };
 
-export const sectionButtonAsLink = {
+export const sectionWithButtonAsLink = {
   type: "section",
   text: {
     type: "mrkdwn",

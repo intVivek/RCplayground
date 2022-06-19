@@ -1,4 +1,4 @@
-export const plainText = {
+export const sectionWithPlainText = {
   type: "section",
   text: {
     type: "plain_text",
@@ -7,7 +7,7 @@ export const plainText = {
   },
 };
 
-export const mrkdwn = {
+export const sectionWithMrkdwn = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -15,7 +15,7 @@ export const mrkdwn = {
   },
 };
 
-export const textFields = {
+export const sectionWithTextFields = {
   type: "section",
   fields: [
     {

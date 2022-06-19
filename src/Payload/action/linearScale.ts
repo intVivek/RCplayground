@@ -1,4 +1,4 @@
-export const linearScale = {
+export const actionWithLinearScale = {
   type: "actions",
   elements: [
     {
