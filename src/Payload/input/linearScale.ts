@@ -1,8 +1,6 @@
 export const inputWithLinearSelect = {
   type: "input",
   element: {
-    appId: "dummy-app-id",
-    blockId: "dummy-block-id",
     type: "linear_scale",
     minValue: 0,
     maxValue: 10,

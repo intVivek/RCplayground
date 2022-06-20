@@ -1,8 +1,6 @@
 export const inputWithDatePicker = {
   type: "input",
   element: {
-    appId: "dummy-app-id",
-    blockId: "dummy-block-id",
     type: "datepicker",
     initialDate: "1990-04-28",
     placeholder: {
