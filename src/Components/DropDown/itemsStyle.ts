@@ -5,7 +5,7 @@ export const itemStyle = (layer: number, hover: boolean) => {
     cursor: pointer;
     padding-left: ${10 + (layer - 1) * 16}px;
     background-color: ${hover
-      ? "var(----rocketChat-accent-color)"
+      ? "var(--rocketChat-accent-color)"
       : "transparent"};
   `;
   return style;
