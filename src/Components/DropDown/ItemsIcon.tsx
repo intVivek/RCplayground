@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ReactComponent as Burger } from "../../../Assets/Icon/burger.svg";
-import { ReactComponent as Cube } from "../../../Assets/Icon/cube.svg";
-import { ReactComponent as Folder } from "../../../Assets/Icon/folder.svg";
+import { ReactComponent as Burger } from "../../Assets/Icon/burger.svg";
+import { ReactComponent as Cube } from "../../Assets/Icon/cube.svg";
+import { ReactComponent as Folder } from "../../Assets/Icon/folder.svg";
 
 const ItemsIcon = ({
   layer,

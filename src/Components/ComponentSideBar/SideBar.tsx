@@ -22,7 +22,7 @@ const SideBar: FC = () => {
         transition: var(--animation-default);
       `
     : css`
-        width: min(35%, 250px);
+        width: var(--sidebar-width);
         user-select: none;
         transition: var(--animation-default);
       `;

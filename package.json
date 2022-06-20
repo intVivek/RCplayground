@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.8.2",
     "@rocket.chat/css-in-js": "^0.31.12",
     "@rocket.chat/fuselage": "^0.31.13",
     "@rocket.chat/fuselage-hooks": "^0.31.13",

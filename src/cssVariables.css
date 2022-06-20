@@ -1,6 +1,7 @@
 :root {
     --primaryBackgroundColor: #f6f9fc;
     --white: #ffffff;
+    --rocketChat-accent-color: #f5455c;
     --animation-default:  0.5s ease;
     --animation-fast:  0.3s ease;
     --animation-very-fast:  0.1s ease;

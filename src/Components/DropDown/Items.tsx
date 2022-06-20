@@ -2,7 +2,7 @@ import { css } from "@rocket.chat/css-in-js";
 import { Box, Label } from "@rocket.chat/fuselage";
 import React, { useState } from "react";
 
-import { ReactComponent as Chevron } from "../../../Assets/Icon/chevron.svg";
+import { ReactComponent as Chevron } from "../../Assets/Icon/chevron.svg";
 import ItemsIcon from "./ItemsIcon";
 import { itemStyle, labelStyle } from "./itemsStyle";
 
