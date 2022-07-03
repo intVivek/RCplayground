@@ -20,13 +20,7 @@ const RightNavBtn: FC = () => {
       `}
       onClick={() => isMobile && dispatch(navMenuToggleAction(true))}
     >
-      {isMobile ? (
-        <BurgerIcon />
-      ) : (
-        <Button danger primary>
-          Send to RocketChat
-        </Button>
-      )}
+      {isMobile ? <BurgerIcon /> : <Button danger>Send to RocketChat</Button>}
     </Box>
   );
 };

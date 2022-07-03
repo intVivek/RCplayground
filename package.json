@@ -4,6 +4,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@codemirror/basic-setup": "0.17.1",
+    "@codemirror/lang-javascript": "0.17.2",
+    "@codemirror/state": "0.17.2",
+    "@codemirror/view": "0.17.10",
+    "@lezer/highlight": "^1.0.0",
     "@rocket.chat/css-in-js": "^0.31.12",
     "@rocket.chat/fuselage": "^0.31.13",
     "@rocket.chat/fuselage-hooks": "^0.31.13",
@@ -60,5 +65,10 @@
     "eslint-plugin-import": "^2.26.0",
     "gh-pages": "^4.0.0",
     "prettier": "^2.6.2"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-plugin": {}
+    }
   }
 }

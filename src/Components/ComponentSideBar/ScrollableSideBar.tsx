@@ -10,7 +10,8 @@ const ScrollableSideBar: FC = () => (
   <Scrollable vertical>
     <Box
       flexGrow="1"
-      mbs="40px"
+      mbs="39px"
+      borderBlockStart="var(--default-border)"
       bg={"var(--primaryBackgroundColor)"}
       className={css`
         box-shadow: var(--dropdown-box-shadow);

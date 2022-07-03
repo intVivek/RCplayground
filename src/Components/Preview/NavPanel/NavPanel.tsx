@@ -19,7 +19,7 @@ const NavPanel: FC = () => {
     <Box
       width={"100%"}
       height={"40px"}
-      borderBlockEnd="1px solid #e6e6e6"
+      borderBlockEnd="var(--default-border)"
       display={"flex"}
       alignItems={"center"}
       zIndex={1}
