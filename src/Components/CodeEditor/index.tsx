@@ -1,39 +1,74 @@
-import { basicSetup } from "@codemirror/basic-setup";
-import { lineNumbers } from "@codemirror/gutter";
-import { javascript } from "@codemirror/lang-javascript";
-import { EditorState } from "@codemirror/state";
-import { EditorView } from "@codemirror/view";
+// import { EditorState } from "@codemirror/state";
+import type { Extension } from "@codemirror/state";
 import { Box } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React, { useEffect, useRef } from "react";
+import { useEffect } from "react";
+// import React, { useEffect, useRef, useState } from "react";
 
-import theme from "./theme";
+// import { extensions } from "./Extensions";
 
-const CodeEditor: FC = () => {
-  const editor = useRef() as React.MutableRefObject<HTMLInputElement>;
+// const CodeEditor: FC = () => {
+//   const editor = useRef() as React.MutableRefObject<HTMLInputElement>;
+//   const [state] = useState<EditorState>(
+//     EditorState.create({
+//       extensions,
+//     })
+//   );
 
+//   useEffect(() => {
+//     const view: EditorView = new EditorView({
+//       state,
+//       doc: '[{"type": "divider"},{"type": "divider"}]',
+//       parent: editor.current,
+//     });
+
+//     return () => {
+//       view.destroy();
+//     };
+//   }, []);
+
+//   const clickHandler = () => {
+//     // console.log(state.doc);
+//     // state.replaceSelection("dfgdg");
+//     state.update({
+//       changes: { from: 0, to: state.doc.length, insert: "foobar" },
+//     });
+//   };
+
+//   return (
+//     <>
+//       <button onClick={clickHandler}>click</button>
+//       <Box minHeight={"100%"} display="grid" ref={editor} />
+//     </>
+//   );
+// };
+
+// export default CodeEditor;
+
+import useCodeMirror from "../../hooks/useCodeMirror";
+
+type CodeMirrorProps = {
+  extensions: Extension[];
+};
+
+const CodeEditor = ({ extensions }: CodeMirrorProps) => {
+  const { editor, value } = useCodeMirror(extensions);
+  const clickHandler = () => {
+    console.log(value);
+    // state.replaceSelection("dfgdg");
+    // ref.update({
+    //   changes: { from: 0, to: state.doc.length, insert: "foobar" },
+    // });
+  };
   useEffect(() => {
-    const state: EditorState = EditorState.create({
-      doc: "",
-      extensions: [
-        basicSetup,
-        javascript(),
-        EditorView.lineWrapping,
-        lineNumbers(),
-        ...theme,
-      ],
-    });
+    console.log(value);
+  }, [value]);
 
-    const view: EditorView = new EditorView({
-      state,
-      parent: editor.current,
-    });
-    return () => {
-      view.destroy();
-    };
-  }, []);
-
-  return <Box minHeight={"100%"} display="grid" ref={editor} />;
+  return (
+    <>
+      <button onClick={clickHandler}>click</button>
+      <Box minHeight={"100%"} display="grid" ref={editor} />
+    </>
+  );
 };
 
 export default CodeEditor;

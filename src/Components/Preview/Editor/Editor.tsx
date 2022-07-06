@@ -1,12 +1,11 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box, Scrollable } from "@rocket.chat/fuselage";
-// import * as uikit from "@rocket.chat/fuselage-ui-kit";
-// import * as UiKit from "@rocket.chat/ui-kit";
 import type { FC } from "react";
 import React, { useContext } from "react";
 
 import { context } from "../../../Context";
 import CodeEditor from "../../CodeEditor";
+import extensions from "./Extensions";
 
 const Editor: FC = () => {
   const {
@@ -22,7 +21,7 @@ const Editor: FC = () => {
         borderInlineStart={"var(--default-border)"}
         className={editor}
       >
-        <CodeEditor />
+        <CodeEditor extensions={extensions} />
       </Box>
     </Scrollable>
   );
