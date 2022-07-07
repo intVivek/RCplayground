@@ -5,7 +5,7 @@ import React, { useContext } from "react";
 
 import { context } from "../../../Context";
 import CodeEditor from "../../CodeEditor";
-import extensions from "./Extensions";
+import extensions from "../../CodeEditor/Extensions";
 
 const Editor: FC = () => {
   const {

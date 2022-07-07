@@ -1,4 +1,4 @@
-import { javascript } from "@codemirror/lang-javascript";
+import { linter } from "@codemirror/lint";
 import { EditorState } from "@codemirror/state";
 import type { Extension } from "@codemirror/state";
 import { EditorView } from "codemirror";
@@ -41,7 +41,11 @@ export default function useCodeMirror(extensions: Extension[]) {
 
     view.current = new EditorView({
       state: EditorState.create({
-        extensions: [updateListenerExtension, javascript(), ...extensions],
+        extensions: [
+          updateListenerExtension,
+          linter(view.current),
+          ...extensions,
+        ],
       }),
       parent: element,
     });
