@@ -3,8 +3,8 @@ export const actionWithImage = {
   elements: [
     {
       type: "image",
-      imageUrl: "https://picsum.photos/200/300",
-      altText: "An image",
+      imageUrl: "string",
+      altText: "string",
     },
   ],
 };

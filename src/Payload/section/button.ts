@@ -1,4 +1,6 @@
-export const sectionWithButtonDefault = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const sectionWithButtonDefault: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -6,6 +8,9 @@ export const sectionWithButtonDefault = {
   },
   accessory: {
     type: "button",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     text: {
       type: "plain_text",
       text: "Click Me",
@@ -14,7 +19,7 @@ export const sectionWithButtonDefault = {
   },
 };
 
-export const sectionWithButtonPrimary = {
+export const sectionWithButtonPrimary: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -22,6 +27,9 @@ export const sectionWithButtonPrimary = {
   },
   accessory: {
     type: "button",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     text: {
       type: "plain_text",
       text: "Click Me",
@@ -31,7 +39,7 @@ export const sectionWithButtonPrimary = {
   },
 };
 
-export const sectionWithButtonDanger = {
+export const sectionWithButtonDanger: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -39,6 +47,9 @@ export const sectionWithButtonDanger = {
   },
   accessory: {
     type: "button",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     text: {
       type: "plain_text",
       text: "Click Me",
@@ -48,7 +59,7 @@ export const sectionWithButtonDanger = {
   },
 };
 
-export const sectionWithButtonAsLink = {
+export const sectionWithButtonAsLink: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -56,6 +67,9 @@ export const sectionWithButtonAsLink = {
   },
   accessory: {
     type: "button",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     text: {
       type: "plain_text",
       text: "Click Me",

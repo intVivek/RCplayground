@@ -4,10 +4,10 @@ import {
   actionWithButtonPrimary,
   actionWithButtonDanger,
   actionWithButtonAsLink,
-  actionWithImage,
   actionWithMenu,
-  actionWithSingleLineInput,
-  actionWithMultiLineInput,
+  // actionWithImage,
+  // actionWithSingleLineInput,
+  // actionWithMultiLineInput,
   actionWithSingleStaticSelect,
   actionWithMultiStaticSelect,
   actionWithDatePicker,
@@ -19,6 +19,7 @@ import {
   contextWithImage,
   contextWithAllElements,
 } from "./context";
+import { divider } from "./divider";
 import { imageWithTitle, imageWithoutTitle } from "./image";
 import {
   inputWithSingleLineInput,
@@ -72,19 +73,7 @@ const BlocksTree: Item = [
           },
         ],
       },
-      {
-        label: "input",
-        branches: [
-          {
-            label: "Single Line",
-            payload: actionWithSingleLineInput,
-          },
-          {
-            label: "Multi Line",
-            payload: actionWithMultiLineInput,
-          },
-        ],
-      },
+
       {
         label: "static select",
         branches: [
@@ -97,10 +86,6 @@ const BlocksTree: Item = [
             payload: actionWithMultiStaticSelect,
           },
         ],
-      },
-      {
-        label: "image",
-        payload: actionWithImage,
       },
       {
         label: "menu",
@@ -274,10 +259,7 @@ const BlocksTree: Item = [
     branches: [
       {
         label: "Plain",
-        payload: {
-          type: "divider",
-          blockId: "divider_1",
-        },
+        payload: divider,
       },
     ],
   },

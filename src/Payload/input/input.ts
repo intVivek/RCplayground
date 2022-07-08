@@ -1,8 +1,12 @@
-export const inputWithSingleLineInput = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const inputWithSingleLineInput: LayoutBlock = {
   type: "input",
   element: {
     type: "plain_text_input",
-    actionId: "plain_text_input_1",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     placeholder: {
       type: "plain_text",
       text: "Enter name",
@@ -18,11 +22,13 @@ export const inputWithSingleLineInput = {
   },
 };
 
-export const inputWithMultiLineInput = {
+export const inputWithMultiLineInput: LayoutBlock = {
   type: "input",
   element: {
     type: "plain_text_input",
-    actionId: "plain_text_input_1",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     placeholder: {
       type: "plain_text",
       text: "Enter name",

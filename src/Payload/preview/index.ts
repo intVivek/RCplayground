@@ -1,4 +1,6 @@
-export const previewPlain = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const previewPlain: LayoutBlock = {
   type: "preview",
   title: [
     {
@@ -25,7 +27,7 @@ export const previewPlain = {
   },
 };
 
-export const previewWithImage = {
+export const previewWithImage: LayoutBlock = {
   type: "preview",
   title: [
     {
@@ -53,7 +55,7 @@ export const previewWithImage = {
   },
 };
 
-export const previewWithUrl = {
+export const previewWithUrl: LayoutBlock = {
   type: "preview",
   title: [
     {
@@ -81,7 +83,7 @@ export const previewWithUrl = {
   externalUrl: "https://rocket.chat",
 };
 
-export const previewWithImageAndUrl = {
+export const previewWithImageAndUrl: LayoutBlock = {
   type: "preview",
   title: [
     {
@@ -97,7 +99,7 @@ export const previewWithImageAndUrl = {
       emoji: true,
     },
   ],
-  thumb: { url: "https://picsum.photos/200/300" },
+  // thumb: { url: "https://picsum.photos/200/300" },
   footer: {
     type: "context",
     elements: [

@@ -1,8 +1,12 @@
-export const inputWithSingleStaticSelect = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const inputWithSingleStaticSelect: LayoutBlock = {
   type: "input",
   element: {
     type: "static_select",
-    actionId: "overflow_1",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     initialValue: "option_2",
     options: [
       {
@@ -34,11 +38,13 @@ export const inputWithSingleStaticSelect = {
   },
 };
 
-export const inputWithMultiStaticSelect = {
+export const inputWithMultiStaticSelect: LayoutBlock = {
   type: "input",
   element: {
     type: "multi_static_select",
-    actionId: "overflow_1",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     initialValue: ["option_1", "option_2"],
     options: [
       {

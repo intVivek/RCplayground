@@ -1,4 +1,6 @@
-export const imageWithTitle = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const imageWithTitle: LayoutBlock = {
   type: "image",
   title: {
     type: "plain_text",
@@ -9,7 +11,7 @@ export const imageWithTitle = {
   altText: "marg",
 };
 
-export const imageWithoutTitle = {
+export const imageWithoutTitle: LayoutBlock = {
   type: "image",
   imageUrl: "https://picsum.photos/200/300",
   altText: "inspiration",

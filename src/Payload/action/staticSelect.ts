@@ -1,9 +1,13 @@
-export const actionWithSingleStaticSelect = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const actionWithSingleStaticSelect: LayoutBlock = {
   type: "actions",
   elements: [
     {
       type: "static_select",
-      actionId: "overflow_1",
+      appId: "dummy-app-id",
+      blockId: "dummy-block-id",
+      actionId: "dummy-action-id",
       initialValue: "option_2",
       options: [
         {
@@ -31,12 +35,14 @@ export const actionWithSingleStaticSelect = {
   ],
 };
 
-export const actionWithMultiStaticSelect = {
+export const actionWithMultiStaticSelect: LayoutBlock = {
   type: "actions",
   elements: [
     {
       type: "multi_static_select",
-      actionId: "overflow_1",
+      appId: "dummy-app-id",
+      blockId: "dummy-block-id",
+      actionId: "dummy-action-id",
       initialValue: ["option_1", "option_2"],
       options: [
         {

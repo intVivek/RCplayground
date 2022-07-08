@@ -1,4 +1,6 @@
-export const sectionWithPlainText = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const sectionWithPlainText: LayoutBlock = {
   type: "section",
   text: {
     type: "plain_text",
@@ -7,7 +9,7 @@ export const sectionWithPlainText = {
   },
 };
 
-export const sectionWithMrkdwn = {
+export const sectionWithMrkdwn: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -15,7 +17,7 @@ export const sectionWithMrkdwn = {
   },
 };
 
-export const sectionWithTextFields = {
+export const sectionWithTextFields: LayoutBlock = {
   type: "section",
   fields: [
     {

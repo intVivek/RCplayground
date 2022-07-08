@@ -1,4 +1,6 @@
-export const contextWithPlainText = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const contextWithPlainText: LayoutBlock = {
   type: "context",
   elements: [
     {
@@ -9,7 +11,7 @@ export const contextWithPlainText = {
   ],
 };
 
-export const contextWithMrkdwn = {
+export const contextWithMrkdwn: LayoutBlock = {
   type: "context",
   elements: [
     {
@@ -19,7 +21,7 @@ export const contextWithMrkdwn = {
   ],
 };
 
-export const contextWithImage = {
+export const contextWithImage: LayoutBlock = {
   type: "context",
   elements: [
     {
@@ -30,7 +32,7 @@ export const contextWithImage = {
   ],
 };
 
-export const contextWithAllElements = {
+export const contextWithAllElements: LayoutBlock = {
   type: "context",
   elements: [
     {

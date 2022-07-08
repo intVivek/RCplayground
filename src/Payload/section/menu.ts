@@ -1,4 +1,6 @@
-export const sectionWithMenu = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const sectionWithMenu: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -6,6 +8,9 @@ export const sectionWithMenu = {
   },
   accessory: {
     type: "overflow",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     options: [
       {
         text: {

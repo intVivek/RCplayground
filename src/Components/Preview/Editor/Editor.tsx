@@ -1,4 +1,3 @@
-import { css } from "@rocket.chat/css-in-js";
 import { Box, Scrollable } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useContext } from "react";
@@ -11,7 +10,7 @@ const Editor: FC = () => {
   const {
     state: { isTablet },
   } = useContext(context);
-  const editor = css``;
+
   return (
     <Scrollable vertical>
       <Box
@@ -19,7 +18,6 @@ const Editor: FC = () => {
         height={"100%"}
         bg={"#f6f9fc"}
         borderInlineStart={"var(--default-border)"}
-        className={editor}
       >
         <CodeEditor extensions={extensions} />
       </Box>

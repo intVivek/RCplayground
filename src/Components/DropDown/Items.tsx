@@ -1,25 +1,21 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box, Label } from "@rocket.chat/fuselage";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { ReactComponent as Chevron } from "../../Assets/Icon/chevron.svg";
+import { context, payloadAction } from "../../Context";
 import ItemsIcon from "./ItemsIcon";
 import { itemStyle, labelStyle } from "./itemsStyle";
-
-type ItemProps = {
-  label: string;
-  layer: number;
-  payload?: object;
-  children?: ReadonlyArray<JSX.Element>;
-};
+import type { ItemProps } from "./types";
 
 const Items = ({ label, children, layer, payload }: ItemProps) => {
   const [isOpen, toggleItemOpen] = useState<boolean>(layer === 1);
   const [hover, setHover] = useState<boolean>(false);
+  const { state, dispatch } = useContext(context);
 
   const itemClickHandler = () => {
     toggleItemOpen(!isOpen);
-    payload && console.log(payload);
+    payload && dispatch(payloadAction([...state.payload, payload]));
   };
 
   return (

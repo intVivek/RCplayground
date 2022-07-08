@@ -1,13 +1,19 @@
-import { linter } from "@codemirror/lint";
 import { EditorState } from "@codemirror/state";
 import type { Extension } from "@codemirror/state";
 import { EditorView } from "codemirror";
 import { useCallback, useEffect, useState, useRef } from "react";
 
+type changes = {
+  value: string;
+  isFlush: boolean;
+};
 export default function useCodeMirror(extensions: Extension[]) {
   const view = useRef<EditorView>();
   const [element, setElement] = useState<HTMLElement>();
-  const [value, setVal] = useState<string | undefined>("");
+  const [changes, setChanges] = useState<changes>({
+    value: "",
+    isFlush: true,
+  });
 
   const editor = useCallback((node: HTMLElement | null) => {
     if (!node) return;
@@ -15,16 +21,15 @@ export default function useCodeMirror(extensions: Extension[]) {
     setElement(node);
   }, []);
 
-  const update = useCallback(
-    (update: { docChanged: boolean }) => {
-      if (update.docChanged) {
-        setVal(view.current?.state?.doc.toString());
-      }
-    },
-    [value, view]
-  );
-
-  const updateListenerExtension = EditorView.updateListener.of(update);
+  const updateListener = EditorView.updateListener.of((update) => {
+    update.docChanged && console.log(update.transactions[0]);
+    if (update.docChanged) {
+      setChanges({
+        value: view.current?.state?.doc.toString() || "",
+        isFlush: !update?.transactions[0]?.scrollIntoView || false,
+      });
+    }
+  });
 
   const setValue = (value?: string, from?: number, to?: number) => {
     view.current?.dispatch({
@@ -41,11 +46,7 @@ export default function useCodeMirror(extensions: Extension[]) {
 
     view.current = new EditorView({
       state: EditorState.create({
-        extensions: [
-          updateListenerExtension,
-          linter(view.current),
-          ...extensions,
-        ],
+        extensions: [updateListener, ...extensions],
       }),
       parent: element,
     });
@@ -53,5 +54,5 @@ export default function useCodeMirror(extensions: Extension[]) {
     return () => view.current?.destroy();
   }, [element]);
 
-  return { editor, value, setValue };
+  return { editor, changes, setValue };
 }

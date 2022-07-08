@@ -3,7 +3,12 @@ import {
   closeBrackets,
   closeBracketsKeymap,
 } from "@codemirror/autocomplete";
-import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
+import {
+  defaultKeymap,
+  history,
+  historyKeymap,
+  indentWithTab,
+} from "@codemirror/commands";
 import {
   defaultHighlightStyle,
   syntaxHighlighting,
@@ -53,6 +58,7 @@ const basicSetup: Extension = (() => [
     ...foldKeymap,
     ...completionKeymap,
     ...lintKeymap,
+    indentWithTab,
   ]),
 ])();
 

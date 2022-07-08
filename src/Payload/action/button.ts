@@ -1,8 +1,13 @@
-export const actionWithButtonDefault = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const actionWithButtonDefault: LayoutBlock = {
   type: "actions",
   elements: [
     {
       type: "button",
+      appId: "dummy-app-id",
+      blockId: "dummy-block-id",
+      actionId: "dummy-action-id",
       text: {
         type: "plain_text",
         text: "Click Me",
@@ -12,11 +17,14 @@ export const actionWithButtonDefault = {
   ],
 };
 
-export const actionWithButtonPrimary = {
+export const actionWithButtonPrimary: LayoutBlock = {
   type: "actions",
   elements: [
     {
       type: "button",
+      appId: "dummy-app-id",
+      blockId: "dummy-block-id",
+      actionId: "dummy-action-id",
       text: {
         type: "plain_text",
         text: "Click Me",
@@ -27,11 +35,14 @@ export const actionWithButtonPrimary = {
   ],
 };
 
-export const actionWithButtonDanger = {
+export const actionWithButtonDanger: LayoutBlock = {
   type: "actions",
   elements: [
     {
       type: "button",
+      appId: "dummy-app-id",
+      blockId: "dummy-block-id",
+      actionId: "dummy-action-id",
       text: {
         type: "plain_text",
         text: "Click Me",
@@ -42,11 +53,14 @@ export const actionWithButtonDanger = {
   ],
 };
 
-export const actionWithButtonAsLink = {
+export const actionWithButtonAsLink: LayoutBlock = {
   type: "actions",
   elements: [
     {
       type: "button",
+      appId: "dummy-app-id",
+      blockId: "dummy-block-id",
+      actionId: "dummy-action-id",
       text: {
         type: "plain_text",
         text: "Click Me",

@@ -1,4 +1,6 @@
-export const sectionWithdatePicker = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const sectionWithdatePicker: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
@@ -6,6 +8,9 @@ export const sectionWithdatePicker = {
   },
   accessory: {
     type: "datepicker",
+    appId: "dummy-app-id",
+    blockId: "dummy-block-id",
+    actionId: "dummy-action-id",
     initialDate: "1990-04-28",
     placeholder: {
       type: "plain_text",

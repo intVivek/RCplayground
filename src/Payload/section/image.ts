@@ -1,4 +1,6 @@
-export const sectionWithImage = {
+import type { LayoutBlock } from "@rocket.chat/ui-kit";
+
+export const sectionWithImage: LayoutBlock = {
   type: "section",
   text: {
     type: "mrkdwn",
