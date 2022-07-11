@@ -1,11 +1,10 @@
 import type { Extension } from "@codemirror/state";
 import { Box } from "@rocket.chat/fuselage";
-// import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
-// import type { LayoutBlock } from "@rocket.chat/ui-kit";
-// import beautify from "js-beautify";
+import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
 import { useEffect, useContext } from "react";
 
-import { context } from "../../Context";
+import { payloadAction, context } from "../../Context";
+import useCodeBeautify from "../../hooks/useCodeBeautify";
 import useCodeMirror from "../../hooks/useCodeMirror";
 
 type CodeMirrorProps = {
@@ -13,64 +12,27 @@ type CodeMirrorProps = {
 };
 
 const CodeEditor = ({ extensions }: CodeMirrorProps) => {
-  const { editor, setValue } = useCodeMirror(extensions || []);
-  const { state } = useContext(context);
+  const { editor, changes, setValue } = useCodeMirror(extensions || []);
+  const { state, dispatch } = useContext(context);
+  const { formattedCode } = useCodeBeautify(state.payload);
 
-  // const debounceValue = useDebouncedValue(changes?.value, 500);
-
-  // useEffect(() => {
-  //   if (!changes?.isFlush) {
-  //     // setValue(changes?.value);
-  //     try {
-  //       const val = JSON.parse(changes.value);
-  //       if(val is LayoutBlock){
-  //       }
-  //     } catch (e) {}
-  //   }
-  // }, [debounceValue]);
-  // const [code, setCode] = useState(
-  //   `{"blocks":[{"type":"divider"},{"type":"divider"}]}`
-  // );
-
-  // const formatCode = () => {
-  //   const formattedCode = beautify(code, {
-  //     indent_size: "4",
-  //     indent_char: " ",
-  //     max_preserve_newlines: "5",
-  //     preserve_newlines: true,
-  //     keep_array_indentation: true,
-  //     break_chained_methods: false,
-  //     indent_scripts: "normal",
-  //     space_before_conditional: true,
-  //     unescape_strings: false,
-  //     jslint_happy: false,
-  //     end_with_newline: false,
-  //     wrap_line_length: "80",
-  //     indent_inner_html: true,
-  //     comma_first: false,
-  //     e4x: false,
-  //     brace_style: "end-expand",
-  //   });
-
-  //   setCode(formattedCode);
-  // };
-
-  // const getValueHandler = () => {
-  //   console.log(value);
-  // };
-
-  // const setValueHandler = () => {
-  // };
+  const debounceValue = useDebouncedValue(changes?.value, 500);
 
   useEffect(() => {
-    setValue(JSON.stringify(state.payload, undefined, 4));
-  }, [state.payload]);
+    if (!changes?.isFlush) {
+      if (typeof changes.value === "object") {
+        dispatch(payloadAction(changes.value));
+      }
+    }
+  }, [debounceValue]);
+
+  useEffect(() => {
+    setValue(formattedCode);
+  }, [formattedCode]);
 
   return (
     <>
-      {/* <button onClick={getValueHandler}>getValue</button>
-      <button onClick={setValueHandler}>SetValue</button> */}
-      <Box minHeight={"100%"} display="grid" ref={editor} />
+      <Box ref={editor} />
     </>
   );
 };

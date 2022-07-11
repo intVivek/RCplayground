@@ -1,4 +1,4 @@
-import { EditorState } from "@codemirror/state";
+import { EditorState, EditorSelection } from "@codemirror/state";
 import type { Extension } from "@codemirror/state";
 import { EditorView } from "codemirror";
 import { useCallback, useEffect, useState, useRef } from "react";
@@ -7,6 +7,7 @@ type changes = {
   value: string;
   isFlush: boolean;
 };
+
 export default function useCodeMirror(extensions: Extension[]) {
   const view = useRef<EditorView>();
   const [element, setElement] = useState<HTMLElement>();
@@ -22,7 +23,6 @@ export default function useCodeMirror(extensions: Extension[]) {
   }, []);
 
   const updateListener = EditorView.updateListener.of((update) => {
-    update.docChanged && console.log(update.transactions[0]);
     if (update.docChanged) {
       setChanges({
         value: view.current?.state?.doc.toString() || "",
@@ -32,12 +32,14 @@ export default function useCodeMirror(extensions: Extension[]) {
   });
 
   const setValue = (value?: string, from?: number, to?: number) => {
+    console.log(view.current?.state.selection);
     view.current?.dispatch({
       changes: {
         from: from || 0,
-        to: to || view.current?.state.doc.length,
+        to: to || view.current.state.doc.length,
         insert: value || "",
       },
+      selection: EditorSelection.create(view.current?.state.selection.ranges),
     });
   };
 
