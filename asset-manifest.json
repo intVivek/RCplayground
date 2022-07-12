@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/RCplayground/static/css/main.09062fc8.css",
-    "main.js": "/RCplayground/static/js/main.3e8b9603.js",
+    "main.js": "/RCplayground/static/js/main.8ca5bdf8.js",
     "static/media/burger.svg": "/RCplayground/static/media/burger.8985da35d24282a2b64e798cb080af10.svg",
     "index.html": "/RCplayground/index.html",
     "static/media/file.svg": "/RCplayground/static/media/file.d326a6f33c5e0fe514b3f2fff14e415f.svg",
@@ -11,10 +11,10 @@
     "static/media/folder.svg": "/RCplayground/static/media/folder.52e6ca306af8bd91a91201d808339bd8.svg",
     "static/media/chevron.svg": "/RCplayground/static/media/chevron.91fb479e4c5316f8b2d8f316c2b2daaf.svg",
     "main.09062fc8.css.map": "/RCplayground/static/css/main.09062fc8.css.map",
-    "main.3e8b9603.js.map": "/RCplayground/static/js/main.3e8b9603.js.map"
+    "main.8ca5bdf8.js.map": "/RCplayground/static/js/main.8ca5bdf8.js.map"
   },
   "entrypoints": [
     "static/css/main.09062fc8.css",
-    "static/js/main.3e8b9603.js"
+    "static/js/main.8ca5bdf8.js"
   ]
 }
