@@ -6,7 +6,7 @@ export type initialStateType = {
   sideBarToggle: boolean;
   tabsToggle: number;
   navMenuToggle: boolean;
-  payload: Array<readonly LayoutBlock[]>;
+  payload: readonly LayoutBlock[];
 };
 
 export const initialState = {

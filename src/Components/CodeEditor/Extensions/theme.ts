@@ -18,7 +18,7 @@ const gutters: Extension = EditorView.theme({
 
 const selection: Extension = EditorView.theme({
   ".cm-selectionBackground": {
-    backgroundColor: "#19ac7c !important",
+    backgroundColor: "var(--RCPG-secondary-color) !important",
     opacity: 0.3,
   },
 

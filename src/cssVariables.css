@@ -9,4 +9,6 @@
     --sidebar-width: min(35%, 250px);
     --dropdown-box-shadow: inset -15px 15px 20px -30px rgb(47 52 61 / 55%);
     --default-border: 1px solid #e6e6e6;
+    --elements-border: 1px solid #b9b8b8;
+    --elements-box-shadow:  0px 0px 8px 1px #ddd;
   }

@@ -12,7 +12,7 @@ export default function useCodeMirror(extensions: Extension[]) {
   const view = useRef<EditorView>();
   const [element, setElement] = useState<HTMLElement>();
   const [changes, setChanges] = useState<changes>({
-    value: "",
+    value: "[]",
     isFlush: true,
   });
 
@@ -32,15 +32,18 @@ export default function useCodeMirror(extensions: Extension[]) {
   });
 
   const setValue = (value?: string, from?: number, to?: number) => {
-    console.log(view.current?.state.selection);
-    view.current?.dispatch({
-      changes: {
-        from: from || 0,
-        to: to || view.current.state.doc.length,
-        insert: value || "",
-      },
-      selection: EditorSelection.create(view.current?.state.selection.ranges),
-    });
+    try {
+      view.current?.dispatch({
+        changes: {
+          from: from || 0,
+          to: to || view.current.state.doc.length,
+          insert: value || "",
+        },
+        selection: EditorSelection.create(view.current?.state.selection.ranges),
+      });
+    } catch (e) {
+      // do nothing
+    }
   };
 
   useEffect(() => {
@@ -48,6 +51,7 @@ export default function useCodeMirror(extensions: Extension[]) {
 
     view.current = new EditorView({
       state: EditorState.create({
+        doc: "[]",
         extensions: [updateListener, ...extensions],
       }),
       parent: element,
