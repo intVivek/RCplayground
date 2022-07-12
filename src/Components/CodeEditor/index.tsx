@@ -4,7 +4,6 @@ import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
 import { useEffect, useContext } from "react";
 
 import { payloadAction, context } from "../../Context";
-// import useCodeBeautify from "../../hooks/useCodeBeautify";
 import useCodeMirror from "../../hooks/useCodeMirror";
 import codeBeautify from "../../utils/codeBeautify";
 
@@ -15,7 +14,6 @@ type CodeMirrorProps = {
 const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   const { editor, changes, setValue } = useCodeMirror(extensions || []);
   const { state, dispatch } = useContext(context);
-  // const { formattedCode } = useCodeBeautify(state.payload);
 
   const debounceValue = useDebouncedValue(changes?.value, 500);
 

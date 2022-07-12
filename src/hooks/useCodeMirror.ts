@@ -42,7 +42,13 @@ export default function useCodeMirror(extensions: Extension[]) {
         selection: EditorSelection.create(view.current?.state.selection.ranges),
       });
     } catch (e) {
-      // do nothing
+      view.current?.dispatch({
+        changes: {
+          from: from || 0,
+          to: to || view.current.state.doc.length,
+          insert: value || "",
+        },
+      });
     }
   };
 
