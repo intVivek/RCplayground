@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useContext } from "react";
 
 import { ReactComponent as Close } from "../../../Assets/Icon/cross.svg";
@@ -8,6 +9,7 @@ const Display = ({ elementIndex }: { elementIndex: number }) => {
 
   const deleteElement = () => {
     const { payload } = state;
+    // @ts-ignore
     payload.splice(elementIndex, 1);
     dispatch(payloadAction([...payload]));
   };

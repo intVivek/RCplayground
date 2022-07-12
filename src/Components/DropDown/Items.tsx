@@ -15,7 +15,7 @@ const Items = ({ label, children, layer, payload }: ItemProps) => {
 
   const itemClickHandler = () => {
     toggleItemOpen(!isOpen);
-    payload && dispatch(payloadAction([...state.payload, payload]));
+    payload && dispatch(payloadAction([...state.payload, payload[0]]));
   };
 
   return (

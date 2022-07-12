@@ -51,7 +51,6 @@ export default function useCodeMirror(extensions: Extension[]) {
 
     view.current = new EditorView({
       state: EditorState.create({
-        doc: "[]",
         extensions: [updateListener, ...extensions],
       }),
       parent: element,
