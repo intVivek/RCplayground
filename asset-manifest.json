@@ -1,20 +1,18 @@
 {
   "files": {
-    "main.css": "/RCplayground/static/css/main.09062fc8.css",
-    "main.js": "/RCplayground/static/js/main.b2ade98d.js",
-    "static/media/burger.svg": "/RCplayground/static/media/burger.8985da35d24282a2b64e798cb080af10.svg",
+    "main.css": "/RCplayground/static/css/main.e311347a.css",
+    "main.js": "/RCplayground/static/js/main.86a4e2de.js",
+    "static/media/rocketchat.svg": "/RCplayground/static/media/rocketchat.6933eb442d730710dfad.svg",
+    "static/media/rocketchat.eot": "/RCplayground/static/media/rocketchat.999fc71edeed13690310.eot",
+    "static/media/rocketchat.ttf": "/RCplayground/static/media/rocketchat.bd240c4672501074990f.ttf",
+    "static/media/rocketchat.woff": "/RCplayground/static/media/rocketchat.8a15198f4f1cb23665ec.woff",
+    "static/media/rocketchat.woff2": "/RCplayground/static/media/rocketchat.fb8ebc299124801bad76.woff2",
     "index.html": "/RCplayground/index.html",
-    "static/media/file.svg": "/RCplayground/static/media/file.d326a6f33c5e0fe514b3f2fff14e415f.svg",
-    "static/media/cube.svg": "/RCplayground/static/media/cube.12a35896c2e819b69b2a9e487113f9d9.svg",
-    "static/media/copy.svg": "/RCplayground/static/media/copy.98d73ff78a41e28269afdaa601cdb0cb.svg",
-    "static/media/cross.svg": "/RCplayground/static/media/cross.48ff428082bc496208d62838cc6a888a.svg",
-    "static/media/folder.svg": "/RCplayground/static/media/folder.52e6ca306af8bd91a91201d808339bd8.svg",
-    "static/media/chevron.svg": "/RCplayground/static/media/chevron.91fb479e4c5316f8b2d8f316c2b2daaf.svg",
-    "main.09062fc8.css.map": "/RCplayground/static/css/main.09062fc8.css.map",
-    "main.b2ade98d.js.map": "/RCplayground/static/js/main.b2ade98d.js.map"
+    "main.e311347a.css.map": "/RCplayground/static/css/main.e311347a.css.map",
+    "main.86a4e2de.js.map": "/RCplayground/static/js/main.86a4e2de.js.map"
   },
   "entrypoints": [
-    "static/css/main.09062fc8.css",
-    "static/js/main.b2ade98d.js"
+    "static/css/main.e311347a.css",
+    "static/js/main.86a4e2de.js"
   ]
 }
