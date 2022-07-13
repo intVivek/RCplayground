@@ -1,8 +1,7 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Box, Label } from "@rocket.chat/fuselage";
+import { Box, Label, Chevron } from "@rocket.chat/fuselage";
 import React, { useState, useContext } from "react";
 
-import { ReactComponent as Chevron } from "../../Assets/Icon/chevron.svg";
 import { context, payloadAction } from "../../Context";
 import ItemsIcon from "./ItemsIcon";
 import { itemStyle, labelStyle } from "./itemsStyle";
@@ -31,14 +30,15 @@ const Items = ({ label, children, layer, payload }: ItemProps) => {
         <Box size={16} display="flex" alignItems="center">
           {children && children.length > 0 && (
             <Box
+              size={16}
               display={"flex"}
               alignItems={"center"}
               className={css`
-                transform: rotate(${isOpen ? "90deg" : "0deg"});
+                transform: rotate(${!isOpen ? "-90deg" : "0deg"});
                 transition: var(--animation-very-fast);
               `}
             >
-              <Chevron width="12px" fill={hover ? "#fff" : "#000"} />
+              <Chevron width="12px" color={hover ? "#fff" : "#000"} />
             </Box>
           )}
         </Box>

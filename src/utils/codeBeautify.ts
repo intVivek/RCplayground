@@ -2,7 +2,7 @@ import beautify from "js-beautify";
 
 const CodeBeautify = (code: string): string =>
   beautify(code, {
-    indent_size: "2",
+    indent_size: "4",
     indent_char: " ",
     max_preserve_newlines: "5",
     preserve_newlines: true,

@@ -32,7 +32,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   }, [debounceValue]);
 
   useEffect(() => {
-    setValue(codeBeautify(JSON.stringify(state.payload, undefined, 2)));
+    setValue(codeBeautify(JSON.stringify(state.payload, undefined, 4)));
   }, [state.payload]);
 
   return (

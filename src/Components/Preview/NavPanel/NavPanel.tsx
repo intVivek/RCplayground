@@ -1,10 +1,8 @@
 import { css } from "@rocket.chat/css-in-js";
-import { Box, ButtonGroup } from "@rocket.chat/fuselage";
+import { Box, ButtonGroup, Icon } from "@rocket.chat/fuselage";
 import React, { useContext } from "react";
 import type { FC } from "react";
 
-import { ReactComponent as Copy } from "../../../Assets/Icon/copy.svg";
-import { ReactComponent as File } from "../../../Assets/Icon/file.svg";
 import { context } from "../../../Context";
 import PanelBtn from "./PanelBtn";
 import TabChange from "./TabChange";
@@ -37,12 +35,12 @@ const NavPanel: FC = () => {
           `}
         >
           <PanelBtn
-            icon={<File width={16} />}
+            icon={<Icon name="file" width={16} />}
             name={"Clear Blocks"}
             isSmall={isTablet}
           />
           <PanelBtn
-            icon={<Copy width={16} />}
+            icon={<Icon name="copy" width={16} />}
             name={"Copy Payload"}
             isSmall={isTablet}
           />

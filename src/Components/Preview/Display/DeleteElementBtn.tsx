@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { Icon } from "@rocket.chat/fuselage";
 import React, { useContext } from "react";
 
-import { ReactComponent as Close } from "../../../Assets/Icon/cross.svg";
 import { context, payloadAction } from "../../../Context";
 
 const Display = ({ elementIndex }: { elementIndex: number }) => {
@@ -27,7 +27,7 @@ const Display = ({ elementIndex }: { elementIndex: number }) => {
       className={"closeBtn"}
       onClick={deleteElement}
     >
-      <Close />
+      <Icon name="cross" size="x20" />
     </div>
   );
 };
