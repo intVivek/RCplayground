@@ -16,7 +16,7 @@ const ElementWrapper = ({
       border: 1px solid transparent;
       display: flex;
       align-items: center;
-      padding: 7px 0px 7px 10px;
+      padding: 7px;
       border-radius: 4px;
       transition: var(--animation-fast);
       &:hover {

@@ -10,7 +10,7 @@ const Display: FC = () => {
 
   return (
     <Scrollable vertical>
-      <Box height={"100%"} flexGrow={1} padding={"10px"} zIndex={1}>
+      <Box height={"100%"} padding="10px">
         <ModalPayload blocks={state.payload} />
       </Box>
     </Scrollable>

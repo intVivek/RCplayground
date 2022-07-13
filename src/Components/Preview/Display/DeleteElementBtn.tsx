@@ -23,6 +23,12 @@ const Display = ({ elementIndex }: { elementIndex: number }) => {
         right: "6px",
         visibility: "hidden",
         cursor: "pointer",
+        zIndex: 1,
+        backgroundColor: "white",
+        borderRadius: "4px",
+        border: "var(--elements-border)",
+        display: "grid",
+        placeItems: "center",
       }}
       className={"closeBtn"}
       onClick={deleteElement}

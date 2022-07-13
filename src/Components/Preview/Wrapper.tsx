@@ -1,6 +1,7 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box } from "@rocket.chat/fuselage";
 import React, { useContext } from "react";
+import SplitPane from "react-split-pane";
 
 import { context } from "../../Context";
 import Display from "./Display";
@@ -25,6 +26,7 @@ const Wrapper = () => {
         `;
     }
   };
+  const splitPaneProps = { defaultSize: 500 };
   return (
     <Box position="relative" width={"100%"} flexGrow={1}>
       <Box
@@ -34,8 +36,10 @@ const Wrapper = () => {
         display={"flex"}
         className={tabChangeStyle()}
       >
-        <Display />
-        <Editor />
+        <SplitPane {...splitPaneProps}>
+          <Display />
+          <Editor />
+        </SplitPane>
       </Box>
     </Box>
   );
