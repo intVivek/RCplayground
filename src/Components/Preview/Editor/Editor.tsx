@@ -8,10 +8,12 @@ import extensions from "../../CodeEditor/Extensions";
 const Editor: FC = () => (
   <Scrollable vertical>
     <Box
-      padding={"10px"}
+      position="relative"
       height={"100%"}
+      width={"100%"}
       zIndex={1}
       bg={"#f6f9fc"}
+      display={"flex"}
       borderInlineStart={"var(--default-border)"}
     >
       <CodeEditor extensions={extensions} />

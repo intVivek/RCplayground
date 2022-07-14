@@ -6,6 +6,7 @@
   "dependencies": {
     "@codemirror/lang-javascript": "^6.0.1",
     "@codemirror/lang-json": "^6.0.0",
+    "@codemirror/tooltip": "^0.19.16",
     "@lezer/highlight": "^1.0.0",
     "@rocket.chat/css-in-js": "^0.31.12",
     "@rocket.chat/fuselage": "^0.31.13",

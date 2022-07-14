@@ -15,7 +15,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   const { editor, changes, setValue } = useCodeMirror(extensions || []);
   const { state, dispatch } = useContext(context);
 
-  const debounceValue = useDebouncedValue(changes?.value, 500);
+  const debounceValue = useDebouncedValue(changes?.value, 1500);
 
   useEffect(() => {
     if (!changes?.isFlush) {
@@ -37,7 +37,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
 
   return (
     <>
-      <Box display="grid" height="100%" ref={editor} />
+      <Box display="grid" height="100%" width={"100%"} ref={editor} />
     </>
   );
 };

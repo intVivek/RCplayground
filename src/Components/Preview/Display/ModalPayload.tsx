@@ -6,7 +6,7 @@ import DeleteElementBtn from "./DeleteElementBtn";
 import ElementWrapper from "./ElementWrapper";
 
 const ModalPayload = ({ blocks }: { blocks: readonly LayoutBlock[] }) => (
-  <Box>
+  <Box margin={"10px"}>
     {blocks.map((block, i) => (
       <ElementWrapper key={i}>
         <DeleteElementBtn elementIndex={i} />
