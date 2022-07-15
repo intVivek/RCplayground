@@ -8,7 +8,7 @@ type changes = {
   isFlush: boolean;
 };
 
-export default function useCodeMirror(extensions: Extension[]) {
+export default function useCodeMirror(extensions?: Extension[], doc?: string) {
   const view = useRef<EditorView>();
   const [element, setElement] = useState<HTMLElement>();
   const [changes, setChanges] = useState<changes>({
@@ -57,7 +57,8 @@ export default function useCodeMirror(extensions: Extension[]) {
 
     view.current = new EditorView({
       state: EditorState.create({
-        extensions: [updateListener, ...extensions],
+        doc: doc || "",
+        extensions: [updateListener, ...(extensions || [])],
       }),
       parent: element,
     });

@@ -6,7 +6,13 @@ import { context, tabsToggleAction } from "../../Context";
 import Display from "./Display";
 import Editor from "./Editor";
 
-const SplitPlaneContainer: FC = () => {
+type PreviewSizeType = {
+  blockSize: number;
+  inlineSize: number;
+};
+const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
+  PreviewSize,
+}) => {
   const {
     state: { isTablet },
     dispatch,
@@ -15,10 +21,14 @@ const SplitPlaneContainer: FC = () => {
   useEffect(() => {
     dispatch(tabsToggleAction(0));
   }, [isTablet, dispatch]);
+
   const splitPaneProps = {
-    defaultSize: 500,
+    defaultSize: 700,
+    minSize: 400,
+    maxSize: PreviewSize.inlineSize * 0.8,
     allowResize: !isTablet,
   };
+
   return isTablet ? (
     <>
       <Display />

@@ -12,9 +12,11 @@ type CodeMirrorProps = {
 };
 
 const CodeEditor = ({ extensions }: CodeMirrorProps) => {
-  const { editor, changes, setValue } = useCodeMirror(extensions || []);
   const { state, dispatch } = useContext(context);
-
+  const { editor, changes, setValue } = useCodeMirror(
+    extensions,
+    codeBeautify(JSON.stringify(state.payload, undefined, 4))
+  );
   const debounceValue = useDebouncedValue(changes?.value, 1500);
 
   useEffect(() => {

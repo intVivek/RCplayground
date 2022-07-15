@@ -1,11 +1,13 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box } from "@rocket.chat/fuselage";
+import { useResizeObserver } from "@rocket.chat/fuselage-hooks";
 import React, { useContext } from "react";
 
 import { context } from "../../Context";
 import SplitPlaneContainer from "./SplitPlaneContainer";
 
 const Wrapper = () => {
+  const { ref, contentBoxSize } = useResizeObserver();
   const {
     state: { isTablet, tabsToggle },
   } = useContext(context);
@@ -32,9 +34,10 @@ const Wrapper = () => {
         width={isTablet ? "200%" : "100%"}
         height={"100%"}
         display={"flex"}
+        ref={ref}
         className={tabChangeStyle()}
       >
-        <SplitPlaneContainer />
+        <SplitPlaneContainer PreviewSize={contentBoxSize} />
       </Box>
     </Box>
   );
