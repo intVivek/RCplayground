@@ -1,11 +1,13 @@
 import type { Extension } from "@codemirror/state";
 import { Box } from "@rocket.chat/fuselage";
 import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
+import json5 from "json5";
 import { useEffect, useContext } from "react";
 
 import { payloadAction, context } from "../../Context";
 import useCodeMirror from "../../hooks/useCodeMirror";
 import codeBeautify from "../../utils/codeBeautify";
+import codePrettier from "../../utils/codePrettier";
 
 type CodeMirrorProps = {
   extensions?: Extension[];
@@ -21,20 +23,26 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
 
   useEffect(() => {
     if (!changes?.isFlush) {
-      setValue(codeBeautify(changes.value));
+      console.log(changes.value);
       try {
-        const parsedCode = JSON.parse(changes.value);
+        const parsedCode = json5.parse(changes.value);
         dispatch(payloadAction(parsedCode));
       } catch (e) {
+        console.log(e);
         // do nothing;
       } finally {
-        setValue(codeBeautify(changes.value));
+        setValue(codePrettier(changes.value, 11).formatted.replaceAll(";", ""));
       }
     }
   }, [debounceValue]);
 
   useEffect(() => {
-    setValue(codeBeautify(JSON.stringify(state.payload, undefined, 4)));
+    setValue(
+      codePrettier(
+        JSON.stringify(state.payload, undefined, 4),
+        11
+      ).formatted.replaceAll(";", "")
+    );
   }, [state.payload]);
 
   return (

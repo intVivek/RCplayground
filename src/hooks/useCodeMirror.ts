@@ -9,7 +9,7 @@ type changes = {
 };
 
 export default function useCodeMirror(extensions?: Extension[], doc?: string) {
-  const view = useRef<EditorView>();
+  const view = useRef<any>();
   const [element, setElement] = useState<HTMLElement>();
   const [changes, setChanges] = useState<changes>({
     value: "[]",
@@ -24,6 +24,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
 
   const updateListener = EditorView.updateListener.of((update) => {
     if (update.docChanged) {
+      console.log(update);
       setChanges({
         value: view.current?.state?.doc.toString() || "",
         isFlush: !update?.transactions[0]?.scrollIntoView || false,

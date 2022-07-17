@@ -106,7 +106,7 @@ export const previewWithImageAndUrl: readonly LayoutBlock[] = [
         emoji: true,
       },
     ],
-    // thumb: { url: "https://picsum.photos/200/300" },
+    thumb: { url: "https://picsum.photos/200/300" },
     footer: {
       type: "context",
       elements: [
@@ -116,6 +116,6 @@ export const previewWithImageAndUrl: readonly LayoutBlock[] = [
         },
       ],
     },
-    externalUrl: "https://rocket.chat",
+    // externalUrl: "https://rocket.chat",
   },
 ];
