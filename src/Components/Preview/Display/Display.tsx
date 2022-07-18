@@ -11,7 +11,7 @@ const Display: FC = () => {
   return (
     <Scrollable vertical>
       <Box height={"100%"} width={"100%"}>
-        <ModalPayload blocks={state.payload} />
+        <ModalPayload blocks={state.doc.payload} />
       </Box>
     </Scrollable>
   );

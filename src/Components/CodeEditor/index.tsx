@@ -4,9 +4,8 @@ import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
 import json5 from "json5";
 import { useEffect, useContext } from "react";
 
-import { payloadAction, context } from "../../Context";
+import { docAction, context } from "../../Context";
 import useCodeMirror from "../../hooks/useCodeMirror";
-import codeBeautify from "../../utils/codeBeautify";
 import codePrettier from "../../utils/codePrettier";
 
 type CodeMirrorProps = {
@@ -17,7 +16,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   const { state, dispatch } = useContext(context);
   const { editor, changes, setValue } = useCodeMirror(
     extensions,
-    codeBeautify(JSON.stringify(state.payload, undefined, 4))
+    json5.stringify(state.doc.payload, undefined, 4)
   );
   const debounceValue = useDebouncedValue(changes?.value, 1500);
 
@@ -26,24 +25,36 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
       console.log(changes.value);
       try {
         const parsedCode = json5.parse(changes.value);
-        dispatch(payloadAction(parsedCode));
+        dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
-        console.log(e);
-        // do nothing;
-      } finally {
-        setValue(codePrettier(changes.value, 11).formatted.replaceAll(";", ""));
+        // do nothing
+      }
+    }
+  }, [changes?.value]);
+
+  useEffect(() => {
+    if (!changes?.isFlush) {
+      console.log(changes.value);
+      try {
+        const parsedCode = json5.parse(changes.value);
+        const prettierCode = codePrettier(changes.value, changes.cursor);
+        console.log(prettierCode, changes.cursor);
+        setValue(prettierCode.formatted, {
+          cursor: prettierCode.cursorOffset,
+        });
+        dispatch(docAction({ payload: parsedCode }));
+      } catch (e) {
+        // do nothing
       }
     }
   }, [debounceValue]);
 
   useEffect(() => {
-    setValue(
-      codePrettier(
-        JSON.stringify(state.payload, undefined, 4),
-        11
-      ).formatted.replaceAll(";", "")
-    );
-  }, [state.payload]);
+    if (state.doc.isFlush) {
+      console.log(changes.value);
+      setValue(json5.stringify(state.doc.payload, undefined, 4), {});
+    }
+  }, [state.doc.payload]);
 
   return (
     <>

@@ -7,7 +7,7 @@ export { isTabletAction } from "./action";
 export { sidebarToggleAction } from "./action";
 export { tabsToggleAction } from "./action";
 export { navMenuToggleAction } from "./action";
-export { payloadAction } from "./action";
+export { docAction } from "./action";
 
 const [context, Provider] = createCtx(reducer, initialState);
 

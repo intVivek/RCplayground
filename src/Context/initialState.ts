@@ -1,12 +1,17 @@
 import type { LayoutBlock } from "@rocket.chat/ui-kit";
 
+export type docType = {
+  payload: readonly LayoutBlock[];
+  isFlush?: boolean;
+};
+
 export type initialStateType = {
   isMobile: boolean;
   isTablet: boolean;
   sideBarToggle: boolean;
   tabsToggle: number;
   navMenuToggle: boolean;
-  payload: readonly LayoutBlock[];
+  doc: docType;
 };
 
 export const initialState: initialStateType = {
@@ -15,5 +20,5 @@ export const initialState: initialStateType = {
   sideBarToggle: false,
   tabsToggle: 0,
   navMenuToggle: false,
-  payload: [],
+  doc: { payload: [], isFlush: false },
 };

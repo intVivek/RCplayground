@@ -1,4 +1,4 @@
-import { EditorState, EditorSelection } from "@codemirror/state";
+import { EditorState } from "@codemirror/state";
 import type { Extension } from "@codemirror/state";
 import { EditorView } from "codemirror";
 import { useCallback, useEffect, useState, useRef } from "react";
@@ -6,14 +6,16 @@ import { useCallback, useEffect, useState, useRef } from "react";
 type changes = {
   value: string;
   isFlush: boolean;
+  cursor?: number;
 };
 
 export default function useCodeMirror(extensions?: Extension[], doc?: string) {
-  const view = useRef<any>();
+  const view = useRef<EditorView>();
   const [element, setElement] = useState<HTMLElement>();
   const [changes, setChanges] = useState<changes>({
     value: "[]",
     isFlush: true,
+    cursor: 0,
   });
 
   const editor = useCallback((node: HTMLElement | null) => {
@@ -24,32 +26,40 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
 
   const updateListener = EditorView.updateListener.of((update) => {
     if (update.docChanged) {
-      console.log(update);
       setChanges({
         value: view.current?.state?.doc.toString() || "",
-        isFlush: !update?.transactions[0]?.scrollIntoView || false,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        isFlush: update?.transactions[0]?.annotations?.length === 1 || false,
+        cursor: view.current?.state?.selection?.main?.head || 0,
       });
     }
   });
 
-  const setValue = (value?: string, from?: number, to?: number) => {
+  const setValue = (
+    value: string,
+    {
+      from,
+      to,
+      cursor,
+    }: {
+      from?: number;
+      to?: number;
+      cursor?: number;
+    }
+  ) => {
     try {
+      console.log(cursor);
       view.current?.dispatch({
         changes: {
           from: from || 0,
           to: to || view.current.state.doc.length,
           insert: value || "",
         },
-        selection: EditorSelection.create(view.current?.state.selection.ranges),
+        selection: { anchor: cursor || 0 },
       });
     } catch (e) {
-      view.current?.dispatch({
-        changes: {
-          from: from || 0,
-          to: to || view.current.state.doc.length,
-          insert: value || "",
-        },
-      });
+      // do nothing;
     }
   };
 

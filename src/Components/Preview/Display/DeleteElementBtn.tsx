@@ -2,16 +2,18 @@
 import { Icon } from "@rocket.chat/fuselage";
 import React, { useContext } from "react";
 
-import { context, payloadAction } from "../../../Context";
+import { context, docAction } from "../../../Context";
 
 const Display = ({ elementIndex }: { elementIndex: number }) => {
   const { state, dispatch } = useContext(context);
 
   const deleteElement = () => {
-    const { payload } = state;
+    const {
+      doc: { payload },
+    } = state;
     // @ts-ignore
     payload.splice(elementIndex, 1);
-    dispatch(payloadAction([...payload]));
+    dispatch(docAction({ payload: [...payload], isFlush: true }));
   };
   return (
     <div

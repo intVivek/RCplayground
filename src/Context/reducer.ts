@@ -14,8 +14,14 @@ const reducer = (state: initialStateType, action: actionType) => {
       return { ...state, tabsToggle: action.payload };
     case "navMenuToggle":
       return { ...state, navMenuToggle: action.payload };
-    case "payload":
-      return { ...state, payload: action.payload };
+    case "doc":
+      return {
+        ...state,
+        doc: {
+          payload: action.payload.payload,
+          isFlush: action.payload?.isFlush || false,
+        },
+      };
     default:
       return state;
   }

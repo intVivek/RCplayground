@@ -2,7 +2,7 @@ import { css } from "@rocket.chat/css-in-js";
 import { Box, Label, Chevron } from "@rocket.chat/fuselage";
 import React, { useState, useContext } from "react";
 
-import { context, payloadAction } from "../../Context";
+import { context, docAction } from "../../Context";
 import ItemsIcon from "./ItemsIcon";
 import { itemStyle, labelStyle } from "./itemsStyle";
 import type { ItemProps } from "./types";
@@ -14,7 +14,13 @@ const Items = ({ label, children, layer, payload }: ItemProps) => {
 
   const itemClickHandler = () => {
     toggleItemOpen(!isOpen);
-    payload && dispatch(payloadAction([...state.payload, payload[0]]));
+    payload &&
+      dispatch(
+        docAction({
+          payload: [...state.doc.payload, payload[0]],
+          isFlush: true,
+        })
+      );
   };
 
   return (
