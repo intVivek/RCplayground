@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState, useRef } from "react";
 
 type changes = {
   value: string;
-  isFlush: boolean;
+  isDispatch: boolean;
   cursor?: number;
 };
 
@@ -14,7 +14,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
   const [element, setElement] = useState<HTMLElement>();
   const [changes, setChanges] = useState<changes>({
     value: "[]",
-    isFlush: true,
+    isDispatch: true,
     cursor: 0,
   });
 
@@ -30,7 +30,7 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
         value: view.current?.state?.doc.toString() || "",
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        isFlush: update?.transactions[0]?.annotations?.length === 1 || false,
+        isDispatch: update?.transactions[0]?.annotations?.length === 1 || false,
         cursor: view.current?.state?.selection?.main?.head || 0,
       });
     }

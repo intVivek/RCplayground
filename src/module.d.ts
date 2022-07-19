@@ -4,4 +4,4 @@ declare module "*.svg" {
   export default src;
 }
 
-declare module "js-beautify";
+declare module "eslint4b-prebuilt";

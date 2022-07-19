@@ -14,7 +14,6 @@ const ElementWrapper = ({
       position: relative;
       box-sizing: border-box;
       border: 1px solid transparent;
-      display: flex;
       align-items: center;
       padding: 7px;
       border-radius: 4px;

@@ -18,7 +18,7 @@ const Items = ({ label, children, layer, payload }: ItemProps) => {
       dispatch(
         docAction({
           payload: [...state.doc.payload, payload[0]],
-          isFlush: true,
+          changedByEditor: false,
         })
       );
   };

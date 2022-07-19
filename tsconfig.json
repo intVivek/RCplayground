@@ -21,7 +21,7 @@
     "jsx": "react-jsx"
   },  
   "include": [
-    "src", "src/svg.d.ts", 
+    "src", "src/module.d.ts", 
   ],
   "exclude": [
     "node_modules", 

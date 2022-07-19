@@ -3,8 +3,9 @@ import { tags as t } from "@lezer/highlight";
 
 const highLightStyle = () => {
   const style = HighlightStyle.define([
-    { tag: t.definition(t.propertyName), color: "#da2525" },
-    { tag: t.literal, color: "var(--RCPG-primary-color)" },
+    { tag: t.string, color: "var(--RCPG-primary-color)" },
+    { tag: t.bool, color: "var(--RCPG-tertary-color)" },
+    { tag: t.number, color: "var(--RCPG-secondary-color)" },
   ]);
 
   return syntaxHighlighting(style);

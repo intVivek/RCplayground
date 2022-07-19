@@ -1,20 +1,10 @@
-import { json, jsonParseLinter } from "@codemirror/lang-json";
-import { linter } from "@codemirror/lint";
-import { EditorView } from "@codemirror/view";
+import { javascript } from "@codemirror/lang-javascript";
 
 import highlightStyle from "./HighlightStyle";
 import basicSetup from "./basicSetup";
+import lint from "./lint";
 import theme from "./theme";
 
-const linterExtension = linter(jsonParseLinter());
-
-const extensions = [
-  highlightStyle,
-  EditorView.lineWrapping,
-  json(),
-  basicSetup,
-  linterExtension,
-  ...theme,
-];
+const extensions = [highlightStyle, javascript(), lint, basicSetup, ...theme];
 
 export default extensions;

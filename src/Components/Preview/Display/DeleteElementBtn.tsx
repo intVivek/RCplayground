@@ -13,7 +13,7 @@ const Display = ({ elementIndex }: { elementIndex: number }) => {
     } = state;
     // @ts-ignore
     payload.splice(elementIndex, 1);
-    dispatch(docAction({ payload: [...payload], isFlush: true }));
+    dispatch(docAction({ payload: [...payload], changedByEditor: false }));
   };
   return (
     <div

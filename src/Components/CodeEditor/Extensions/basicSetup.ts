@@ -27,6 +27,7 @@ import {
   rectangularSelection,
   crosshairCursor,
   lineNumbers,
+  EditorView,
 } from "@codemirror/view";
 
 const basicSetup: Extension = (() => [
@@ -36,6 +37,7 @@ const basicSetup: Extension = (() => [
   drawSelection(),
   dropCursor(),
   indentOnInput(),
+  EditorView.lineWrapping,
   syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
   bracketMatching(),
   closeBrackets(),

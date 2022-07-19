@@ -21,28 +21,33 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   const debounceValue = useDebouncedValue(changes?.value, 1500);
 
   useEffect(() => {
-    if (!changes?.isFlush) {
-      console.log(changes.value);
+    console.log("3", !changes?.isDispatch);
+    if (!changes?.isDispatch) {
       try {
         const parsedCode = json5.parse(changes.value);
+        dispatch(
+          docAction({
+            payload: parsedCode,
+            changedByEditor: false,
+          })
+        );
+
         dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
+        console.log(e);
         // do nothing
       }
     }
   }, [changes?.value]);
 
   useEffect(() => {
-    if (!changes?.isFlush) {
-      console.log(changes.value);
+    console.log("2", !changes?.isDispatch);
+    if (!changes?.isDispatch) {
       try {
-        const parsedCode = json5.parse(changes.value);
         const prettierCode = codePrettier(changes.value, changes.cursor);
-        console.log(prettierCode, changes.cursor);
         setValue(prettierCode.formatted, {
           cursor: prettierCode.cursorOffset,
         });
-        dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
         // do nothing
       }
@@ -50,7 +55,8 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   }, [debounceValue]);
 
   useEffect(() => {
-    if (state.doc.isFlush) {
+    console.log("1", !state.doc.changedByEditor);
+    if (!state.doc.changedByEditor) {
       console.log(changes.value);
       setValue(json5.stringify(state.doc.payload, undefined, 4), {});
     }

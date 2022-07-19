@@ -7,6 +7,7 @@ const codePrettier = (code: string, cursor: any) =>
     plugins: [pluginBabel],
     tabWidth: 4,
     useTabs: true,
+    singleQuote: true,
     cursorOffset: cursor,
   });
 

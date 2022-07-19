@@ -19,7 +19,7 @@ const reducer = (state: initialStateType, action: actionType) => {
         ...state,
         doc: {
           payload: action.payload.payload,
-          isFlush: action.payload?.isFlush || false,
+          changedByEditor: action.payload.changedByEditor === undefined,
         },
       };
     default:
