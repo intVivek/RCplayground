@@ -49,7 +49,6 @@ export default function useCodeMirror(extensions?: Extension[], doc?: string) {
     }
   ) => {
     try {
-      console.log(cursor);
       view.current?.dispatch({
         changes: {
           from: from || 0,

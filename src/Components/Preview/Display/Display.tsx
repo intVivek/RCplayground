@@ -1,20 +1,19 @@
 import { Box, Scrollable } from "@rocket.chat/fuselage";
 import type { FC } from "react";
-import React, { useContext } from "react";
+import React from "react";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
-import { context } from "../../../Context";
-import ModalPayload from "./ModalPayload";
+import { Container } from "./Container";
 
-const Display: FC = () => {
-  const { state } = useContext(context);
-
-  return (
-    <Scrollable vertical>
-      <Box height={"100%"} width={"100%"}>
-        <ModalPayload blocks={state.doc.payload} />
-      </Box>
-    </Scrollable>
-  );
-};
+const Display: FC = () => (
+  <Scrollable vertical>
+    <Box height={"100%"} width={"100%"}>
+      <DndProvider backend={HTML5Backend}>
+        <Container />
+      </DndProvider>
+    </Box>
+  </Scrollable>
+);
 
 export default Display;

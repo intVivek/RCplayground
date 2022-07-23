@@ -21,7 +21,6 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   const debounceValue = useDebouncedValue(changes?.value, 1500);
 
   useEffect(() => {
-    console.log("3", !changes?.isDispatch);
     if (!changes?.isDispatch) {
       try {
         const parsedCode = json5.parse(changes.value);
@@ -41,7 +40,6 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   }, [changes?.value]);
 
   useEffect(() => {
-    console.log("2", !changes?.isDispatch);
     if (!changes?.isDispatch) {
       try {
         const prettierCode = codePrettier(changes.value, changes.cursor);
@@ -55,9 +53,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
   }, [debounceValue]);
 
   useEffect(() => {
-    console.log("1", !state.doc.changedByEditor);
     if (!state.doc.changedByEditor) {
-      console.log(changes.value);
       setValue(json5.stringify(state.doc.payload, undefined, 4), {});
     }
   }, [state.doc.payload]);
