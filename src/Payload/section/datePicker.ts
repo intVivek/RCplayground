@@ -9,9 +9,9 @@ export const sectionWithdatePicker: readonly LayoutBlock[] = [
     },
     accessory: {
       type: "datepicker",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       initialDate: "1990-04-28",
       placeholder: {
         type: "plain_text",

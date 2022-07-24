@@ -1,10 +1,11 @@
+import "./splitPlane.css";
 import type { FC } from "react";
 import React, { useEffect, useContext } from "react";
 import SplitPane from "react-split-pane";
 
-import { context, tabsToggleAction } from "../../Context";
-import Display from "./Display";
-import Editor from "./Editor";
+import { context, tabsToggleAction } from "../../../Context";
+import Display from "../Display";
+import Editor from "../Editor";
 
 type PreviewSizeType = {
   blockSize: number;
@@ -23,9 +24,9 @@ const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   }, [isTablet, dispatch]);
 
   const splitPaneProps = {
-    defaultSize: 700,
+    defaultSize: PreviewSize.inlineSize * 0.5,
     minSize: 400,
-    maxSize: PreviewSize.inlineSize * 0.8,
+    maxSize: PreviewSize.inlineSize - 400,
     allowResize: !isTablet,
   };
 

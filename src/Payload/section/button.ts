@@ -9,9 +9,9 @@ export const sectionWithButtonDefault: readonly LayoutBlock[] = [
     },
     accessory: {
       type: "button",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       text: {
         type: "plain_text",
         text: "Click Me",
@@ -30,9 +30,9 @@ export const sectionWithButtonPrimary: readonly LayoutBlock[] = [
     },
     accessory: {
       type: "button",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       text: {
         type: "plain_text",
         text: "Click Me",
@@ -52,9 +52,9 @@ export const sectionWithButtonDanger: readonly LayoutBlock[] = [
     },
     accessory: {
       type: "button",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       text: {
         type: "plain_text",
         text: "Click Me",
@@ -74,9 +74,9 @@ export const sectionWithButtonAsLink: readonly LayoutBlock[] = [
     },
     accessory: {
       type: "button",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       text: {
         type: "plain_text",
         text: "Click Me",

@@ -6,9 +6,9 @@ export const actionWithSingleStaticSelect: readonly LayoutBlock[] = [
     elements: [
       {
         type: "static_select",
-        appId: "dummy-app-id",
-        blockId: "dummy-block-id",
-        actionId: "dummy-action-id",
+        appId: "app-id",
+        blockId: "block-id",
+        actionId: "action-id",
         initialValue: "option_2",
         options: [
           {
@@ -43,9 +43,9 @@ export const actionWithMultiStaticSelect: readonly LayoutBlock[] = [
     elements: [
       {
         type: "multi_static_select",
-        appId: "dummy-app-id",
-        blockId: "dummy-block-id",
-        actionId: "dummy-action-id",
+        appId: "app-id",
+        blockId: "block-id",
+        actionId: "action-id",
         initialValue: ["option_1", "option_2"],
         options: [
           {

@@ -2,7 +2,7 @@
 import { Icon } from "@rocket.chat/fuselage";
 import React, { useContext } from "react";
 
-import { context, docAction } from "../../../Context";
+import { context, docAction } from "../../../../Context";
 
 const Display = ({ elementIndex }: { elementIndex: number }) => {
   const { state, dispatch } = useContext(context);

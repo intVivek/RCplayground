@@ -5,12 +5,12 @@ export const inputWithLinearSelect: readonly LayoutBlock[] = [
     type: "input",
     element: {
       type: "linear_scale",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       minValue: 0,
-      maxValue: 10,
-      initialValue: 7,
+      maxValue: 8,
+      initialValue: 5,
     },
     label: {
       type: "plain_text",

@@ -3,11 +3,11 @@ import pluginBabel from "prettier/parser-babel";
 
 const codePrettier = (code: string, cursor: any) =>
   prettier.formatWithCursor(code, {
-    parser: "json5",
+    parser: "json",
     plugins: [pluginBabel],
     tabWidth: 4,
     useTabs: true,
-    singleQuote: true,
+    singleQuote: false,
     cursorOffset: cursor,
   });
 

@@ -54,7 +54,7 @@ const CodeEditor = ({ extensions }: CodeMirrorProps) => {
 
   useEffect(() => {
     if (!state.doc.changedByEditor) {
-      setValue(json5.stringify(state.doc.payload, undefined, 4), {});
+      setValue(JSON.stringify(state.doc.payload, undefined, 4), {});
     }
   }, [state.doc.payload]);
 

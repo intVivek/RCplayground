@@ -5,9 +5,9 @@ export const inputWithSingleLineInput: readonly LayoutBlock[] = [
     type: "input",
     element: {
       type: "plain_text_input",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       placeholder: {
         type: "plain_text",
         text: "Enter name",
@@ -29,9 +29,9 @@ export const inputWithMultiLineInput: readonly LayoutBlock[] = [
     type: "input",
     element: {
       type: "plain_text_input",
-      appId: "dummy-app-id",
-      blockId: "dummy-block-id",
-      actionId: "dummy-action-id",
+      appId: "app-id",
+      blockId: "block-id",
+      actionId: "action-id",
       placeholder: {
         type: "plain_text",
         text: "Enter name",

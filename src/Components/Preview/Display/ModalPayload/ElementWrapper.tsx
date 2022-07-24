@@ -12,6 +12,7 @@ const ElementWrapper = ({
     className={css`
       position: relative;
       box-sizing: border-box;
+      background-color: #fff;
       border: 1px solid transparent;
       align-items: center;
       padding: 7px;
@@ -24,6 +25,10 @@ const ElementWrapper = ({
         > .closeBtn {
           visibility: visible !important;
         }
+      }
+      &:active {
+        border: var(--elements-border);
+        box-shadow: 0px 0px 8px 1px #ddd;
       }
       & > div > div {
         margin: 0 !important;

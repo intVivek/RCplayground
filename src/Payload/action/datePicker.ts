@@ -7,9 +7,9 @@ export const actionWithDatePicker: readonly LayoutBlock[] = [
       {
         type: "datepicker",
         initialDate: "1990-04-28",
-        appId: "dummy-app-id",
-        blockId: "dummy-block-id",
-        actionId: "dummy-action-id",
+        appId: "app-id",
+        blockId: "block-id",
+        actionId: "action-id",
         placeholder: {
           type: "plain_text",
           text: "Select a date",
