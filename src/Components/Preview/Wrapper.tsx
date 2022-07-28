@@ -4,7 +4,7 @@ import { useResizeObserver } from "@rocket.chat/fuselage-hooks";
 import React, { useContext } from "react";
 
 import { context } from "../../Context";
-import SplitPlaneContainer from "./SplitPlaneContainer";
+import SplitPlaneContainer from "./SplitPlaneContainer/SplitPlaneContainer";
 
 const Wrapper = () => {
   const { ref, contentBoxSize } = useResizeObserver();
