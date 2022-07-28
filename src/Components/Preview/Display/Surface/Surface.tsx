@@ -1,3 +1,4 @@
+import { Box } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useContext, useState, useEffect } from "react";
 import type { DropResult } from "react-beautiful-dnd";
@@ -50,7 +51,7 @@ const Surface: FC = () => {
     "2": () => <BannerSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
     "3": () => <ModalSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
   };
-  return <div>{surfaceRender[surface]()}</div>;
+  return <Box padding="20px">{surfaceRender[surface]()}</Box>;
 };
 
 export default Surface;

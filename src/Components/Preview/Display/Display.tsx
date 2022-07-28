@@ -8,7 +8,6 @@ const Display: FC = () => (
     <Box
       height={"100%"}
       width={"100%"}
-      padding="40px"
       borderInlineStart="var(--default-border)"
     >
       <Surface />

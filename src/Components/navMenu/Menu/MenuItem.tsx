@@ -21,7 +21,6 @@ const MenuItem: FC<{ name: string }> = ({ name }) => {
     <Box
       width="100%"
       height="28px"
-      paddingInline="40px"
       paddingBlock="4px"
       display="flex"
       alignItems="center"

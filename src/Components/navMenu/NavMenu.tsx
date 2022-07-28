@@ -14,10 +14,6 @@ const NavMenu: FC = () => {
     dispatch,
   } = useContext(context);
 
-  useEffect(() => {
-    setIsOpen(navMenuToggle);
-  }, [navMenuToggle]);
-
   const toggleHandler = () => {
     setIsOpen(false);
     setTimeout(() => {
@@ -25,13 +21,16 @@ const NavMenu: FC = () => {
     }, 300);
   };
 
+  useEffect(() => {
+    setIsOpen(navMenuToggle);
+  }, [navMenuToggle]);
+
   return (
     <Box
       position="absolute"
       width="100%"
       height="100%"
       zIndex={3}
-      display={"flex"}
       bg={isOpen ? "#000000cc" : "transparent"}
       className={css`
         user-select: none;

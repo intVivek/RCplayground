@@ -7,13 +7,14 @@ import options from "./options";
 
 const SurfaceSelect: FC = () => {
   const {
-    state: { surface },
+    state: { surface, isMobile },
     dispatch,
   } = useContext(context);
   return (
     <Box pie="15px">
       <Select
         width="170px"
+        height={isMobile ? "30px" : "initial"}
         options={options}
         value={`${surface}`}
         placeholder="Surface"

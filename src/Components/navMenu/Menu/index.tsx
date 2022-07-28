@@ -3,6 +3,7 @@ import { Box } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React from "react";
 
+import SurfaceSelect from "../../SurfaceSelect";
 import MenuItem from "./MenuItem";
 import Wrapper from "./Wrapper";
 
@@ -34,6 +35,9 @@ const Menu: FC<{ isOpen: boolean }> = ({ isOpen }) => {
       }}
     >
       <Wrapper>
+        <Box alignSelf={"flex-start"}>
+          <SurfaceSelect />
+        </Box>
         <MenuItem name={"Clear Blocks"} />
         <MenuItem name={"Copy Payload"} />
         <MenuItem name={"Send to RocketChat"} />

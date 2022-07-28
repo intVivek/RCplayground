@@ -4,7 +4,8 @@ import React from "react";
 
 const Wrapper = ({ children }: { children: ReactNode }): ReactElement => (
   <Box
-    paddingBlockStart="80px"
+    pbs="80px"
+    pis={"50px"}
     display="inline-flex"
     flexDirection="column"
     alignItems="center"
