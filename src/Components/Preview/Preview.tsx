@@ -25,7 +25,7 @@ const Preview: FC = () => {
       zIndex={3}
       height={"100%"}
       flexDirection={"column"}
-      pis={isMobile ? "" : "min(35%, 250px)"}
+      pis={isMobile ? "" : "var(--sidebar-width)"}
       className={css`
         transition: 0.5s ease;
       `}

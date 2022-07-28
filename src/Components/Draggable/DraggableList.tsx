@@ -12,21 +12,27 @@ export type Block = {
 
 export type DraggableListProps = {
   blocks: Block[];
+  surface?: number;
   onDragEnd: OnDragEndResponder;
 };
 
 const DraggableList = React.memo(
-  ({ blocks, onDragEnd }: DraggableListProps) => (
+  ({ blocks, surface, onDragEnd }: DraggableListProps) => (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable-list">
         {(provided) => (
           <div
-            style={{ padding: "40px" }}
+            style={{ padding: "10px" }}
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
             {blocks.map((block, index) => (
-              <DraggableListItem block={block} index={index} key={block.id} />
+              <DraggableListItem
+                surface={surface || 1}
+                block={block}
+                index={index}
+                key={block.id}
+              />
             ))}
             {provided.placeholder}
           </div>

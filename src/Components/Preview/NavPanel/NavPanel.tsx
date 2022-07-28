@@ -27,25 +27,27 @@ const NavPanel: FC = () => {
         user-select: none;
       `}
     >
-      {!isMobile && (
-        <ButtonGroup
-          pis={"20px"}
-          className={css`
-            column-gap: 10px;
-          `}
-        >
-          <PanelBtn
-            icon={<Icon name="file" width={16} />}
-            name={"Clear Blocks"}
-            isSmall={isTablet}
-          />
-          <PanelBtn
-            icon={<Icon name="copy" width={16} />}
-            name={"Copy Payload"}
-            isSmall={isTablet}
-          />
-        </ButtonGroup>
-      )}
+      <Box display="flex" height="100%">
+        {!isMobile && (
+          <ButtonGroup
+            pis={"20px"}
+            className={css`
+              column-gap: 10px;
+            `}
+          >
+            <PanelBtn
+              icon={<Icon name="file" width={16} />}
+              name={"Clear Blocks"}
+              isSmall={isTablet}
+            />
+            <PanelBtn
+              icon={<Icon name="copy" width={16} />}
+              name={"Copy Payload"}
+              isSmall={isTablet}
+            />
+          </ButtonGroup>
+        )}
+      </Box>
       {isTablet && <TabChange tabsItem={tabsItem} />}
     </Box>
   );

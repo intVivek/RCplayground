@@ -11,6 +11,7 @@ export type initialStateType = {
   sideBarToggle: boolean;
   tabsToggle: number;
   navMenuToggle: boolean;
+  surface: number;
   doc: docType;
 };
 
@@ -20,5 +21,6 @@ export const initialState: initialStateType = {
   sideBarToggle: false,
   tabsToggle: 0,
   navMenuToggle: false,
+  surface: 1,
   doc: { payload: [], changedByEditor: true },
 };

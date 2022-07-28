@@ -3,6 +3,7 @@ import { Box, Tile, Flex } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React from "react";
 
+import SurfaceSelect from "../SurfaceSelect";
 import Divider from "./Divider";
 import Logo from "./Logo";
 import RightNavBtn from "./RightNavBtn";
@@ -23,6 +24,8 @@ const NabBar: FC = () => (
     >
       <Logo />
       <Divider />
+      <Box flexGrow={1} minWidth="15px" />
+      <SurfaceSelect />
       <RightNavBtn />
     </Box>
   </Flex.Container>

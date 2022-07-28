@@ -1,4 +1,3 @@
-import { css } from "@rocket.chat/css-in-js";
 import { Box, Button } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React, { useContext } from "react";
@@ -14,10 +13,7 @@ const RightNavBtn: FC = () => {
 
   return (
     <Box
-      position="absolute"
-      className={css`
-        right: 20px;
-      `}
+      mie="15px"
       onClick={() => isMobile && dispatch(navMenuToggleAction(true))}
     >
       {isMobile ? <BurgerIcon /> : <Button danger>Send to RocketChat</Button>}

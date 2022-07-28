@@ -12,13 +12,12 @@ const ElementWrapper = ({
     className={css`
       position: relative;
       box-sizing: border-box;
-      background-color: #fff;
       border: 1px solid transparent;
       align-items: center;
       padding: 7px;
-      border-radius: 4px;
       transition: var(--animation-fast);
       &:hover {
+        border-radius: 4px;
         border: var(--elements-border);
         transition: var(--animation-fast);
         box-shadow: 0px 0px 8px 1px #ddd;
@@ -27,6 +26,7 @@ const ElementWrapper = ({
         }
       }
       &:active {
+        background-color: #fff;
         border: var(--elements-border);
         box-shadow: 0px 0px 8px 1px #ddd;
       }
