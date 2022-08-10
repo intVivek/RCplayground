@@ -1,16 +1,21 @@
 import { css } from "@rocket.chat/css-in-js";
 import { Box, ButtonGroup, Icon } from "@rocket.chat/fuselage";
-import React, { useContext } from "react";
 import type { FC } from "react";
+import React, { useContext } from "react";
 
-import { context } from "../../../Context";
+import { context, previewTabsToggleAction } from "../../../Context";
+import ToggleTabs from "../../ToggleTabs";
 import PanelBtn from "./PanelBtn";
-import TabChange from "./TabChange";
 
 const NavPanel: FC = () => {
   const {
-    state: { isMobile, isTablet },
+    state: { isMobile, isTablet, previewTabsToggle },
+    dispatch,
   } = useContext(context);
+
+  const toggleTabsHandler = (index: number) => {
+    dispatch(previewTabsToggleAction(index));
+  };
 
   const tabsItem: string[] = ["Preview", "Editor"];
   return (
@@ -48,7 +53,13 @@ const NavPanel: FC = () => {
           </ButtonGroup>
         )}
       </Box>
-      {isTablet && <TabChange tabsItem={tabsItem} />}
+      {isTablet && (
+        <ToggleTabs
+          tabsItem={tabsItem}
+          onChange={toggleTabsHandler}
+          selectedTab={previewTabsToggle}
+        />
+      )}
     </Box>
   );
 };

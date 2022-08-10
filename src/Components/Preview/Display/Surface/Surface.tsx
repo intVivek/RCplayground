@@ -18,38 +18,54 @@ const Surface: FC = () => {
     },
     dispatch,
   } = useContext(context);
-  const [uniqueBlocks, setUniqueBlocks] = useState<Block[]>(
-    payload.map((block, i) => ({ id: `${i}`, payload: block }))
-  );
+  const [uniqueBlocks, setUniqueBlocks] = useState<{
+    block: Block[];
+    isChangeByDnd: boolean;
+  }>({
+    block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
+    isChangeByDnd: false,
+  });
 
   useEffect(() => {
-    console.log(payload);
-    setUniqueBlocks(
-      payload.map((block, i) => ({ id: `${i}`, payload: block }))
-    );
-  }, [payload.length]);
+    setUniqueBlocks({
+      block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
+      isChangeByDnd: false,
+    });
+  }, [payload]);
 
   useEffect(() => {
-    dispatch(
-      docAction({
-        payload: uniqueBlocks.map((block) => block.payload),
-        changedByEditor: false,
-      })
-    );
+    if (uniqueBlocks.isChangeByDnd) {
+      dispatch(
+        docAction({
+          payload: uniqueBlocks.block.map((block) => block.payload),
+          changedByEditor: false,
+        })
+      );
+    }
   }, [uniqueBlocks]);
 
   const onDragEnd = ({ destination, source }: DropResult) => {
     if (!destination) return;
 
-    const newBlocks = reorder(uniqueBlocks, source.index, destination.index);
+    const newBlocks = reorder(
+      uniqueBlocks.block,
+      source.index,
+      destination.index
+    );
 
-    setUniqueBlocks(newBlocks);
+    setUniqueBlocks({ block: newBlocks, isChangeByDnd: true });
   };
 
   const surfaceRender: { [key: number]: any } = {
-    "1": () => <MessageSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
-    "2": () => <BannerSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
-    "3": () => <ModalSurface blocks={uniqueBlocks} onDragEnd={onDragEnd} />,
+    "1": () => (
+      <MessageSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
+    ),
+    "2": () => (
+      <BannerSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
+    ),
+    "3": () => (
+      <ModalSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
+    ),
   };
   return <Box padding="20px">{surfaceRender[surface]()}</Box>;
 };

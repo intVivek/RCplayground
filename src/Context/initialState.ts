@@ -5,22 +5,72 @@ export type docType = {
   changedByEditor?: boolean;
 };
 
+export type userType = {
+  id: string;
+  username: string;
+  name: string;
+  team_id: string;
+};
+
+export type actionPreviewType = {
+  type: string;
+  user: userType | null;
+  api_app_id?: string;
+  token?: string;
+  container?: {
+    type: string;
+    text: string;
+  };
+  trigger_id?: string;
+  team?: {
+    id: string;
+    domain: string;
+  } | null;
+  enterprise?: string | null;
+  is_enterprise_install?: boolean;
+  action?: object;
+  response_url?: string;
+  state?: object;
+};
+
+const initialActionPreview: actionPreviewType = {
+  type: "block_actions",
+  user: null,
+  api_app_id: "",
+  token: "",
+  container: {
+    type: "message",
+    text: "The contents of the original message where the action originated",
+  },
+  trigger_id: "",
+  team: null,
+  enterprise: null,
+  is_enterprise_install: false,
+  state: {},
+  response_url: "",
+  action: {},
+};
+
 export type initialStateType = {
   isMobile: boolean;
   isTablet: boolean;
   sideBarToggle: boolean;
-  tabsToggle: number;
+  previewTabsToggle: number;
+  editorTabsToggle: number;
   navMenuToggle: boolean;
   surface: number;
   doc: docType;
+  actionPreview: actionPreviewType;
 };
 
 export const initialState: initialStateType = {
   isMobile: false,
   isTablet: false,
   sideBarToggle: false,
-  tabsToggle: 0,
+  previewTabsToggle: 0,
+  editorTabsToggle: 0,
   navMenuToggle: false,
   surface: 1,
   doc: { payload: [], changedByEditor: true },
+  actionPreview: initialActionPreview,
 };
