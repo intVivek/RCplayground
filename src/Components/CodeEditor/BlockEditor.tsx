@@ -16,7 +16,7 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
   const { state, dispatch } = useContext(context);
   const { editor, changes, setValue } = useCodeMirror(
     extensions,
-    json5.stringify(state.doc.payload, undefined, 4)
+    JSON.stringify(state.doc.payload, undefined, 4)
   );
   const debounceValue = useDebouncedValue(changes?.value, 1500);
 
@@ -24,7 +24,7 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
     if (!changes?.isDispatch) {
       try {
         const parsedCode = json5.parse(changes.value);
-
+        console.log(parsedCode);
         dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
         // do nothing
@@ -36,6 +36,7 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
     if (!changes?.isDispatch) {
       try {
         const prettierCode = codePrettier(changes.value, changes.cursor);
+        console.log(prettierCode);
         setValue(prettierCode.formatted, {
           cursor: prettierCode.cursorOffset,
         });
@@ -46,8 +47,8 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
   }, [debounceValue]);
 
   useEffect(() => {
-    console.log(state);
     if (!state.doc.changedByEditor) {
+      console.log(JSON.stringify(state.doc.payload, undefined, 4));
       setValue(JSON.stringify(state.doc.payload, undefined, 4), {});
     }
   }, [state.doc.payload]);
