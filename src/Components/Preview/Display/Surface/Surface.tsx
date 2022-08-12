@@ -1,9 +1,12 @@
 import { Box } from "@rocket.chat/fuselage";
+import * as ui from "@rocket.chat/fuselage-ui-kit";
+import { kitContext } from "@rocket.chat/fuselage-ui-kit";
 import type { FC } from "react";
 import React, { useContext, useState, useEffect } from "react";
 import type { DropResult } from "react-beautiful-dnd";
 
-import { context, docAction } from "../../../../Context";
+import { context, docAction, actionPreviewAction } from "../../../../Context";
+import generateActionPreview from "../../../../Payload/actionPreview/generateActionPreview";
 import type { Block } from "../../../Draggable/DraggableList";
 import BannerSurface from "./BannerSurface";
 import MessageSurface from "./MessageSurface";
@@ -25,8 +28,9 @@ const Surface: FC = () => {
     block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
     isChangeByDnd: false,
   });
-
+  const preview = generateActionPreview("Action Block", {});
   useEffect(() => {
+    console.log(ui);
     setUniqueBlocks({
       block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
       isChangeByDnd: false,
@@ -67,7 +71,28 @@ const Surface: FC = () => {
       <ModalSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
     ),
   };
-  return <Box padding="20px">{surfaceRender[surface]()}</Box>;
+  return (
+    <Box padding="20px">
+      <kitContext.Provider
+        value={{
+          action: (a, b) => {
+            console.log(a, b);
+            preview.action = a;
+            dispatch(actionPreviewAction({ ...preview }));
+          },
+          state: (s, b) => {
+            console.log(s, b);
+            preview.state = s;
+            dispatch(actionPreviewAction({ ...preview }));
+          },
+          values: {},
+          appId: "core",
+        }}
+      >
+        {surfaceRender[surface]()}{" "}
+      </kitContext.Provider>
+    </Box>
+  );
 };
 
 export default Surface;

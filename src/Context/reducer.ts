@@ -28,6 +28,8 @@ const reducer = (state: initialStateType, action: actionType) => {
       };
     case "actionPreview":
       return { ...state, actionPreview: action.payload };
+    case "user":
+      return { ...state, user: action.payload };
     default:
       return state;
   }

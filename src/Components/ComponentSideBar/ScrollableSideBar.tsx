@@ -3,7 +3,7 @@ import { Scrollable, Box } from "@rocket.chat/fuselage";
 import type { FC } from "react";
 import React from "react";
 
-import BlocksTree from "../../Payload/BlocksTree";
+import BlocksTree from "../../Payload/actionBlock/BlocksTree";
 import DropDown from "../DropDown";
 
 const ScrollableSideBar: FC = () => (

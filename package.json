@@ -22,7 +22,6 @@
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.5",
     "codemirror": "^6.0.1",
-    "eslint4b-prebuilt": "^6.7.2",
     "json5": "^2.2.1",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",

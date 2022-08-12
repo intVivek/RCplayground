@@ -1,4 +1,5 @@
 import { json } from "@codemirror/lang-json";
+import { EditorView } from "codemirror";
 
 import highlightStyle from "./HighlightStyle";
 import basicSetup from "./basicSetup";
@@ -16,6 +17,7 @@ export const actionBlockExtensions = [
 ];
 
 export const actionPreviewExtensions = [
+  EditorView.contentAttributes.of({ contenteditable: "false" }),
   highlightStyle,
   json(),
   basicSetup,

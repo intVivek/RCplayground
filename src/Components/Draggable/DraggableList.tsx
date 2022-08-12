@@ -1,5 +1,5 @@
 import type { LayoutBlock } from "@rocket.chat/ui-kit";
-import * as React from "react";
+import React from "react";
 import type { OnDragEndResponder } from "react-beautiful-dnd";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 

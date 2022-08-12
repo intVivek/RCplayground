@@ -36,22 +36,39 @@ const EditorPanel: FC = () => {
 
   return (
     <Box width={"100%"} height={"100%"}>
-      <Box position="relative" width={"100%"} height={"100%"} overflow="hidden">
+      <Box
+        position="relative"
+        width={"100%"}
+        height={"100%"}
+        overflow="hidden"
+        className={[
+          css`
+            user-select: none;
+          `,
+        ]}
+      >
         <ToggleTabs
           tabsItem={tabsItem}
           onChange={toggleTabsHandler}
           selectedTab={editorTabsToggle}
         />
         <Box
-          position="absolute"
-          width={"200%"}
-          height={"100%"}
-          display={"flex"}
-          borderBlockStart="var(--default-border)"
-          className={tabChangeStyle()}
+          position="relative"
+          width="100%"
+          height="calc(100% - 40px)"
+          flexDirection="column"
         >
-          <ActionBlockEditor />
-          <ActionPreviewEditor />
+          <Box
+            position="absolute"
+            width={"200%"}
+            height={"100%"}
+            display={"flex"}
+            borderBlockStart="var(--default-border)"
+            className={tabChangeStyle()}
+          >
+            <ActionBlockEditor />
+            <ActionPreviewEditor />
+          </Box>
         </Box>
       </Box>
     </Box>

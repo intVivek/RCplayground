@@ -10,11 +10,11 @@ export type userType = {
   username: string;
   name: string;
   team_id: string;
-};
+} | null;
 
 export type actionPreviewType = {
-  type: string;
-  user: userType | null;
+  type?: string;
+  user?: userType | null;
   api_app_id?: string;
   token?: string;
   container?: {
@@ -31,24 +31,7 @@ export type actionPreviewType = {
   action?: object;
   response_url?: string;
   state?: object;
-};
-
-const initialActionPreview: actionPreviewType = {
-  type: "block_actions",
-  user: null,
-  api_app_id: "",
-  token: "",
-  container: {
-    type: "message",
-    text: "The contents of the original message where the action originated",
-  },
-  trigger_id: "",
-  team: null,
-  enterprise: null,
-  is_enterprise_install: false,
-  state: {},
-  response_url: "",
-  action: {},
+  view?: readonly LayoutBlock[];
 };
 
 export type initialStateType = {
@@ -61,6 +44,7 @@ export type initialStateType = {
   surface: number;
   doc: docType;
   actionPreview: actionPreviewType;
+  user: userType;
 };
 
 export const initialState: initialStateType = {
@@ -72,5 +56,6 @@ export const initialState: initialStateType = {
   navMenuToggle: false,
   surface: 1,
   doc: { payload: [], changedByEditor: true },
-  actionPreview: initialActionPreview,
+  actionPreview: {},
+  user: null,
 };

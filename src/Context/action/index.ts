@@ -7,3 +7,4 @@ export { navMenuToggleAction } from "./navMenuToggleAction";
 export { docAction } from "./docAction";
 export { surfaceAction } from "./surfaceAction";
 export { actionPreviewAction } from "./actionPreviewAction";
+export { userAction } from "./userAction";
