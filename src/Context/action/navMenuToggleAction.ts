@@ -1,9 +1,9 @@
 type action = {
-  type: string;
-  payload: boolean;
+  type: string,
+  payload: boolean,
 };
 
 export const navMenuToggleAction = (payload: boolean): action => ({
-  type: "navMenuToggle",
+  type: 'navMenuToggle',
   payload,
 });

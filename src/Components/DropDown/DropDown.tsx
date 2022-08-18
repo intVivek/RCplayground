@@ -1,11 +1,11 @@
-import { Box } from "@rocket.chat/fuselage";
-import React, { Fragment } from "react";
+import { Box } from '@rocket.chat/fuselage';
+import React, { Fragment } from 'react';
 
-import Items from "./Items";
-import type { Item, ItemBranch } from "./types";
+import Items from './Items';
+import type { Item, ItemBranch } from './types';
 
 interface DropDownProps {
-  readonly BlocksTree: Item;
+  readonly BlocksTree: Item,
 }
 
 const DropDown = ({ BlocksTree }: DropDownProps) => {
@@ -23,7 +23,7 @@ const DropDown = ({ BlocksTree }: DropDownProps) => {
   );
 
   return (
-    <Box pbs="15px" pbe="30px">
+    <Box pbs='15px' pbe='30px'>
       {BlocksTree.map((branch: ItemBranch, i: number) => (
         <Box key={i}>{recursiveComponentTree(branch, layer)}</Box>
       ))}

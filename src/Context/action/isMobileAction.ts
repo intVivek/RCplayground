@@ -1,9 +1,9 @@
 type action = {
-  type: string;
-  payload: boolean;
+  type: string,
+  payload: boolean,
 };
 
 export const isMobileAction = (payload: boolean): action => ({
-  type: "isMobile",
+  type: 'isMobile',
   payload,
 });

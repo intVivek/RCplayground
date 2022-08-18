@@ -1,15 +1,15 @@
-import type { Extension } from "@codemirror/state";
-import { Box } from "@rocket.chat/fuselage";
-import { useDebouncedValue } from "@rocket.chat/fuselage-hooks";
-import json5 from "json5";
-import { useEffect, useContext } from "react";
+import type { Extension } from '@codemirror/state';
+import { Box } from '@rocket.chat/fuselage';
+import { useDebouncedValue } from '@rocket.chat/fuselage-hooks';
+import json5 from 'json5';
+import { useEffect, useContext } from 'react';
 
-import { docAction, context } from "../../Context";
-import useCodeMirror from "../../hooks/useCodeMirror";
-import codePrettier from "../../utils/codePrettier";
+import { docAction, context } from '../../Context';
+import useCodeMirror from '../../hooks/useCodeMirror';
+import codePrettier from '../../utils/codePrettier';
 
 type CodeMirrorProps = {
-  extensions?: Extension[];
+  extensions?: Extension[],
 };
 
 const BlockEditor = ({ extensions }: CodeMirrorProps) => {
@@ -24,7 +24,6 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
     if (!changes?.isDispatch) {
       try {
         const parsedCode = json5.parse(changes.value);
-        console.log(parsedCode);
         dispatch(docAction({ payload: parsedCode }));
       } catch (e) {
         // do nothing
@@ -36,7 +35,6 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
     if (!changes?.isDispatch) {
       try {
         const prettierCode = codePrettier(changes.value, changes.cursor);
-        console.log(prettierCode);
         setValue(prettierCode.formatted, {
           cursor: prettierCode.cursorOffset,
         });
@@ -48,14 +46,13 @@ const BlockEditor = ({ extensions }: CodeMirrorProps) => {
 
   useEffect(() => {
     if (!state.doc.changedByEditor) {
-      console.log(JSON.stringify(state.doc.payload, undefined, 4));
       setValue(JSON.stringify(state.doc.payload, undefined, 4), {});
     }
   }, [state.doc.payload]);
 
   return (
     <>
-      <Box display="grid" height="100%" width={"100%"} ref={editor} />
+      <Box display='grid' height='100%' width={'100%'} ref={editor} />
     </>
   );
 };

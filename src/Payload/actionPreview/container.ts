@@ -4,16 +4,16 @@ type containerType = {
 };
 const container: containerType[] = [
   {
-    type: "message",
-    text: "The contents of the original message where the action originated",
+    type: 'message',
+    text: 'The contents of the original message where the action originated',
   },
   {
-    type: "banner",
-    text: "",
+    type: 'banner',
+    text: '',
   },
   {
-    type: "modal",
-    text: "",
+    type: 'modal',
+    text: '',
   },
 ];
 export default container;

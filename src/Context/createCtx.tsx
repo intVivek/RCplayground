@@ -1,7 +1,7 @@
-import type { Dispatch, Reducer, PropsWithChildren } from "react";
-import { createContext, useReducer } from "react";
+import type { Dispatch, Reducer, ReactElement } from 'react';
+import { createContext, useReducer } from 'react';
 
-import type { initialStateType } from "./initialState";
+import type { initialStateType } from './initialState';
 
 export default function createCtx<ActionType>(
   reducer: Reducer<initialStateType, ActionType>,
@@ -12,7 +12,7 @@ export default function createCtx<ActionType>(
     state: initialState,
     dispatch: defaultDispatch,
   });
-  const Provider = (props: PropsWithChildren) => {
+  const Provider = (props: { children: ReactElement }) => {
     const [state, dispatch] = useReducer<Reducer<initialStateType, ActionType>>(
       reducer,
       initialState

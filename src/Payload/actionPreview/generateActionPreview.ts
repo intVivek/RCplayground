@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import { context } from "../../Context";
-import type { actionPreviewType } from "../../Context/initialState";
-import container from "./container";
+import { context } from '../../Context';
+import type { actionPreviewType } from '../../Context/initialState';
+import container from './container';
 
 const generateActionPreview = (type: string, data: actionPreviewType) => {
   const {
@@ -12,17 +12,17 @@ const generateActionPreview = (type: string, data: actionPreviewType) => {
   const actionPreview: actionPreviewType = {
     type,
     user,
-    api_app_id: "",
-    token: "",
-    container: container[surface],
-    trigger_id: "",
+    api_app_id: '',
+    token: '',
+    container: container[surface-1],
+    trigger_id: '',
     team: null,
     enterprise: null,
     is_enterprise_install: false,
-    response_url: "",
+    response_url: '',
     ...data,
   };
-  if (type === "View Submission") {
+  if (type === 'View Submission') {
     actionPreview.view = doc.payload;
   }
   return actionPreview;

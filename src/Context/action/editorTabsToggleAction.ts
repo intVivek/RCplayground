@@ -1,9 +1,9 @@
 type action = {
-  type: string;
-  payload: number;
+  type: string,
+  payload: number,
 };
 
 export const editorTabsToggleAction = (payload: number): action => ({
-  type: "editorToggle",
+  type: 'editorToggle',
   payload,
 });

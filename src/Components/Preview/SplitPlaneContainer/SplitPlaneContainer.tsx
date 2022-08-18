@@ -1,15 +1,15 @@
-import "./splitPlane.css";
-import type { FC } from "react";
-import React, { useEffect, useContext } from "react";
-import SplitPane from "react-split-pane";
+import './splitPlane.css';
+import type { FC } from 'react';
+import React, { useEffect, useContext } from 'react';
+import SplitPane from 'react-split-pane';
 
-import { context, previewTabsToggleAction } from "../../../Context";
-import Display from "../Display";
-import EditorPanel from "../Editor";
+import { context, previewTabsToggleAction } from '../../../Context';
+import Display from '../Display';
+import EditorPanel from '../Editor';
 
 type PreviewSizeType = {
-  blockSize: number;
-  inlineSize: number;
+  blockSize: number,
+  inlineSize: number,
 };
 const SplitPlaneContainer: FC<{ PreviewSize: PreviewSizeType }> = ({
   PreviewSize,

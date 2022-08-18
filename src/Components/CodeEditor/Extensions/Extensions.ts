@@ -1,11 +1,11 @@
-import { json } from "@codemirror/lang-json";
-import { EditorView } from "codemirror";
+import { json } from '@codemirror/lang-json';
+import { EditorView } from 'codemirror';
 
-import highlightStyle from "./HighlightStyle";
-import basicSetup from "./basicSetup";
-import jsonLinter from "./jsonLinter";
-// import payloadLinter from "./payloadLinter";
-import theme from "./theme";
+import highlightStyle from './HighlightStyle';
+import basicSetup from './basicSetup';
+import jsonLinter from './jsonLinter';
+// import payloadLinter from './payloadLinter';
+import theme from './theme';
 
 export const actionBlockExtensions = [
   highlightStyle,
@@ -17,7 +17,7 @@ export const actionBlockExtensions = [
 ];
 
 export const actionPreviewExtensions = [
-  EditorView.contentAttributes.of({ contenteditable: "false" }),
+  EditorView.contentAttributes.of({ contenteditable: 'false' }),
   highlightStyle,
   json(),
   basicSetup,

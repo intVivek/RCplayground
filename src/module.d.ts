@@ -1,5 +1,5 @@
-declare module "*.svg" {
+declare module '*.svg' {
   export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
-  const src: *;
+  const src: any;
   export default src;
 }

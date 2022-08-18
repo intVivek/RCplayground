@@ -1,13 +1,13 @@
-import { Box } from "@rocket.chat/fuselage";
-import { useMediaQueries } from "@rocket.chat/fuselage-hooks";
-import type { FC } from "react";
-import { useEffect, useContext } from "react";
+import { Box } from '@rocket.chat/fuselage';
+import { useMediaQueries } from '@rocket.chat/fuselage-hooks';
+import type { FC } from 'react';
+import { useEffect, useContext } from 'react';
 
-import ComponentSideBar from "../Components/ComponentSideBar";
-import NavBar from "../Components/NavBar";
-import Preview from "../Components/Preview";
-import NavMenu from "../Components/navMenu";
-import { context, isMobileAction, isTabletAction } from "../Context";
+import ComponentSideBar from '../Components/ComponentSideBar';
+import NavBar from '../Components/NavBar';
+import Preview from '../Components/Preview';
+import NavMenu from '../Components/navMenu';
+import { context, isMobileAction, isTabletAction } from '../Context';
 
 const Playground: FC = () => {
   const {
@@ -16,8 +16,8 @@ const Playground: FC = () => {
   } = useContext(context);
 
   const [isMobile, isTablet] = useMediaQueries(
-    "(max-width: 500px)",
-    "(max-width: 1050px)"
+    '(max-width: 630px)',
+    '(max-width: 1050px)'
   );
 
   useEffect(() => {
@@ -28,28 +28,19 @@ const Playground: FC = () => {
     dispatch(isTabletAction(isTablet));
   }, [isTablet, dispatch]);
 
-  // console.log(fui, UiKit, result, button, stateFunction());
-  // useEffect(() => {
-  //   console.log(result);
-  // }, [result]);
-
-  // useEffect(() => {
-  //   console.log(stateFunction());
-  // }, [stateFunction()]);
-
   return (
     <Box
-      display={"flex"}
-      width={"100%"}
-      height={"100%"}
-      flexDirection={"column"}
-      overflow="hidden"
-      bg={"var(--primaryBackgroundColor)"}
+      display={'flex'}
+      width={'100%'}
+      height={'100%'}
+      flexDirection={'column'}
+      overflow='hidden'
+      bg={'var(--primaryBackgroundColor)'}
     >
       <NavBar />
 
       {navMenuToggle && <NavMenu />}
-      <Box width={"100%"} flexGrow={1} position={"relative"} zIndex={0}>
+      <Box width={'100%'} flexGrow={1} position={'relative'} zIndex={0}>
         <ComponentSideBar />
         <Preview />
       </Box>

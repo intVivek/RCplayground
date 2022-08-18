@@ -1,12 +1,12 @@
-import type { Extension } from "@codemirror/state";
-import { Box } from "@rocket.chat/fuselage";
-import { useEffect, useContext } from "react";
+import type { Extension } from '@codemirror/state';
+import { Box } from '@rocket.chat/fuselage';
+import { useEffect, useContext } from 'react';
 
-import { context } from "../../Context";
-import useCodeMirror from "../../hooks/useCodeMirror";
+import { context } from '../../Context';
+import useCodeMirror from '../../hooks/useCodeMirror';
 
 type CodeMirrorProps = {
-  extensions?: Extension[];
+  extensions?: Extension[],
 };
 
 const PreviewEditor = ({ extensions }: CodeMirrorProps) => {
@@ -14,13 +14,12 @@ const PreviewEditor = ({ extensions }: CodeMirrorProps) => {
   const { editor, setValue } = useCodeMirror(extensions, `{}`);
 
   useEffect(() => {
-    console.log(state.actionPreview);
     setValue(JSON.stringify(state.actionPreview, undefined, 4), {});
   }, [state.actionPreview]);
 
   return (
     <>
-      <Box display="grid" height="100%" width={"100%"} ref={editor} />
+      <Box display='grid' height='100%' width={'100%'} ref={editor} />
     </>
   );
 };

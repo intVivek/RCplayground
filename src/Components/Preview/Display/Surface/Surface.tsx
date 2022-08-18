@@ -1,17 +1,16 @@
-import { Box } from "@rocket.chat/fuselage";
-import * as ui from "@rocket.chat/fuselage-ui-kit";
-import { kitContext } from "@rocket.chat/fuselage-ui-kit";
-import type { FC } from "react";
-import React, { useContext, useState, useEffect } from "react";
-import type { DropResult } from "react-beautiful-dnd";
+import { Box } from '@rocket.chat/fuselage';
+import { kitContext } from '@rocket.chat/fuselage-ui-kit';
+import type { FC } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import type { DropResult } from 'react-beautiful-dnd';
 
-import { context, docAction, actionPreviewAction } from "../../../../Context";
-import generateActionPreview from "../../../../Payload/actionPreview/generateActionPreview";
-import type { Block } from "../../../Draggable/DraggableList";
-import BannerSurface from "./BannerSurface";
-import MessageSurface from "./MessageSurface";
-import ModalSurface from "./ModalSurface";
-import { reorder } from "./Reorder";
+import { context, docAction, actionPreviewAction } from '../../../../Context';
+import generateActionPreview from '../../../../Payload/actionPreview/generateActionPreview';
+import type { Block } from '../../../Draggable/DraggableList';
+import BannerSurface from './BannerSurface';
+import MessageSurface from './MessageSurface';
+import ModalSurface from './ModalSurface';
+import { reorder } from './Reorder';
 
 const Surface: FC = () => {
   const {
@@ -22,15 +21,14 @@ const Surface: FC = () => {
     dispatch,
   } = useContext(context);
   const [uniqueBlocks, setUniqueBlocks] = useState<{
-    block: Block[];
-    isChangeByDnd: boolean;
+    block: Block[],
+    isChangeByDnd: boolean,
   }>({
     block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
     isChangeByDnd: false,
   });
-  const preview = generateActionPreview("Action Block", {});
+  const preview = generateActionPreview('Action Block', {});
   useEffect(() => {
-    console.log(ui);
     setUniqueBlocks({
       block: payload.map((block, i) => ({ id: `${i}`, payload: block })),
       isChangeByDnd: false,
@@ -61,35 +59,33 @@ const Surface: FC = () => {
   };
 
   const surfaceRender: { [key: number]: any } = {
-    "1": () => (
+    '1': () => (
       <MessageSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
     ),
-    "2": () => (
+    '2': () => (
       <BannerSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
     ),
-    "3": () => (
+    '3': () => (
       <ModalSurface blocks={uniqueBlocks.block} onDragEnd={onDragEnd} />
     ),
   };
   return (
-    <Box padding="20px">
+    <Box padding='20px'>
       <kitContext.Provider
         value={{
-          action: (a, b) => {
-            console.log(a, b);
+          action: (a) => {
             preview.action = a;
             dispatch(actionPreviewAction({ ...preview }));
           },
-          state: (s, b) => {
-            console.log(s, b);
+          state: (s) => {
             preview.state = s;
             dispatch(actionPreviewAction({ ...preview }));
           },
           values: {},
-          appId: "core",
+          appId: 'core',
         }}
       >
-        {surfaceRender[surface]()}{" "}
+        {surfaceRender[surface]()}{' '}
       </kitContext.Provider>
     </Box>
   );

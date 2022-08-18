@@ -1,1 +1,1 @@
-export { default } from "./parsePayload";
+export { default } from './parsePayload';

@@ -1,15 +1,15 @@
-import { css } from "@rocket.chat/css-in-js";
-import { Box } from "@rocket.chat/fuselage";
-import type { FC } from "react";
-import React, { useContext } from "react";
+import { css } from '@rocket.chat/css-in-js';
+import { Box } from '@rocket.chat/fuselage';
+import type { FC } from 'react';
+import React, { useContext } from 'react';
 
-import { context, editorTabsToggleAction } from "../../../Context";
-import ToggleTabs from "../../ToggleTabs";
-import ActionBlockEditor from "./ActionBlockEditor";
-import ActionPreviewEditor from "./ActionPreviewEditor";
+import { context, editorTabsToggleAction } from '../../../Context';
+import ToggleTabs from '../../ToggleTabs';
+import ActionBlockEditor from './ActionBlockEditor';
+import ActionPreviewEditor from './ActionPreviewEditor';
 
 const EditorPanel: FC = () => {
-  const tabsItem: string[] = ["Action Block", "Action Preview"];
+  const tabsItem: string[] = ['Action Block', 'Action Preview'];
   const {
     state: { editorTabsToggle },
     dispatch,
@@ -35,12 +35,12 @@ const EditorPanel: FC = () => {
   };
 
   return (
-    <Box width={"100%"} height={"100%"}>
+    <Box width={'100%'} height={'100%'}>
       <Box
-        position="relative"
-        width={"100%"}
-        height={"100%"}
-        overflow="hidden"
+        position='relative'
+        width={'100%'}
+        height={'100%'}
+        overflow='hidden'
         className={[
           css`
             user-select: none;
@@ -53,17 +53,17 @@ const EditorPanel: FC = () => {
           selectedTab={editorTabsToggle}
         />
         <Box
-          position="relative"
-          width="100%"
-          height="calc(100% - 40px)"
-          flexDirection="column"
+          position='relative'
+          width='100%'
+          height='calc(100% - 40px)'
+          flexDirection='column'
         >
           <Box
-            position="absolute"
-            width={"200%"}
-            height={"100%"}
-            display={"flex"}
-            borderBlockStart="var(--default-border)"
+            position='absolute'
+            width={'200%'}
+            height={'100%'}
+            display={'flex'}
+            borderBlockStart='var(--default-border)'
             className={tabChangeStyle()}
           >
             <ActionBlockEditor />

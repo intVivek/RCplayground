@@ -1,5 +1,5 @@
-import type { Diagnostic } from "@codemirror/lint";
-import type { EditorView } from "codemirror";
+import type { Diagnostic } from '@codemirror/lint';
+import type { EditorView } from 'codemirror';
 
 const parsePayload = (
   head: any,
