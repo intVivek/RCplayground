@@ -15,145 +15,117 @@ export const templates: templateType[] = [
     payloads: [
       [
         {
-          type: 'actions',
-          elements: [
-            {
-              type: 'overflow',
-              appId: 'app-id',
-              blockId: 'block-id',
-              actionId: 'action-id',
-              options: [
-                {
-                  value: 'option_1',
-                  text: {
-                    type: 'plain_text',
-                    text: 'lorem ipsum 🚀',
-                    emoji: true,
-                  },
-                },
-                {
-                  value: 'option_2',
-                  text: {
-                    type: 'plain_text',
-                    text: 'lorem ipsum 🚀',
-                    emoji: true,
-                  },
-                },
-              ],
-            },
-          ],
+          type: 'section',
+          text: {
+            type: 'plain_text',
+            emoji: true,
+            text: 'Looks like you have a scheduling conflict with this event:',
+          },
         },
         {
-          type: 'actions',
-          elements: [
-            {
-              type: 'button',
-              appId: 'app-id',
-              blockId: 'block-id',
-              actionId: 'action-id',
-              text: {
-                type: 'plain_text',
-                text: 'Click Me',
-                emoji: true,
-              },
-            },
-          ],
-        },
-        {
-          type: 'actions',
-          elements: [
-            {
-              type: 'button',
-              appId: 'app-id',
-              blockId: 'block-id',
-              actionId: 'action-id',
-              text: {
-                type: 'plain_text',
-                text: 'Click Me',
-                emoji: true,
-              },
-              style: 'primary',
-            },
-          ],
-        },
-        {
-          type: 'actions',
-          elements: [
-            {
-              type: 'button',
-              appId: 'app-id',
-              blockId: 'block-id',
-              actionId: 'action-id',
-              text: {
-                type: 'plain_text',
-                text: 'Click Me',
-                emoji: true,
-              },
-              style: 'danger',
-            },
-          ],
-        },
-        {
-          type: 'actions',
-          elements: [
-            {
-              type: 'button',
-              appId: 'app-id',
-              blockId: 'block-id',
-              actionId: 'action-id',
-              text: {
-                type: 'plain_text',
-                text: 'Click Me',
-                emoji: true,
-              },
-              url: 'https://rocket.chat',
-            },
-          ],
+          type: 'divider',
         },
         {
           type: 'section',
           text: {
-            type: 'plain_text',
-            text: 'This is a plain text section block.',
-            emoji: true,
+            type: 'mrkdwn',
+            text: 'Iris Zelda 1-1 Tuesday, January 21 4:00-4:30pm Building 2 - Havarti Cheese (3) 2 guests',
+          },
+          accessory: {
+            type: 'image',
+            imageUrl:
+              'https://api.slack.com/img/blocks/bkb_template_images/notifications.png',
+            altText: 'calendar thumbnail',
+          },
+        },
+        {
+          type: 'context',
+          elements: [
+            {
+              type: 'image',
+              imageUrl:
+                'https://api.slack.com/img/blocks/bkb_template_images/notificationsWarningIcon.png',
+              altText: 'notifications warning icon',
+            },
+            {
+              type: 'mrkdwn',
+              text: 'Conflicts with Team Huddle: 4:15-4:30pm',
+            },
+          ],
+        },
+        {
+          type: 'divider',
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Propose a new time:',
           },
         },
         {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: 'This is a mrkdwn section block :ghost: *this is bold*, and ~this is crossed out~, and <https://google.com|this is a link>',
+            text: 'Today - 4:30-5pm Everyone is available: @iris, @zelda',
+          },
+          accessory: {
+            type: 'button',
+            appId: 'app-id',
+            blockId: 'block-id',
+            actionId: 'action-id',
+            text: {
+              type: 'plain_text',
+              emoji: true,
+              text: 'Choose',
+            },
+            value: 'click_me_123',
           },
         },
         {
           type: 'section',
-          fields: [
-            {
+          text: {
+            type: 'mrkdwn',
+            text: 'Tomorrow - 4-4:30pm Everyone is available: @iris, @zelda',
+          },
+          accessory: {
+            type: 'button',
+            appId: 'app-id',
+            blockId: 'block-id',
+            actionId: 'action-id',
+            text: {
               type: 'plain_text',
-              text: '*this is plain_text text*',
               emoji: true,
+              text: 'Choose',
             },
-            {
+            value: 'click_me_123',
+          },
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: "Tomorrow - 6-6:30pm Some people aren't available: @iris, ~@zelda~",
+          },
+          accessory: {
+            type: 'button',
+            appId: 'app-id',
+            blockId: 'block-id',
+            actionId: 'action-id',
+            text: {
               type: 'plain_text',
-              text: '*this is plain_text text*',
               emoji: true,
+              text: 'Choose',
             },
-            {
-              type: 'plain_text',
-              text: '*this is plain_text text*',
-              emoji: true,
-            },
-            {
-              type: 'plain_text',
-              text: '*this is plain_text text*',
-              emoji: true,
-            },
-            {
-              type: 'plain_text',
-              text: '*this is plain_text text*',
-              emoji: true,
-            },
-          ],
+            value: 'click_me_123',
+          },
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: 'Show more times',
+          },
         },
       ],
       [
