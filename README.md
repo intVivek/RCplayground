@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-[Live Here](http://localhost:3000)
+[Live Here](http://intvivek.github.io/rcplayground/)
 ## Available Scripts
 
 In the project directory, you can run:
