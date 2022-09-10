@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-[http://localhost:3000](Live Here)
+[Live Here](http://localhost:3000)
 ## Available Scripts
 
 In the project directory, you can run:
