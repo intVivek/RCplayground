@@ -37,7 +37,7 @@ const NavPanel: FC = () => {
       `}
     >
       <Box flexGrow={0} pis={'5px'}>
-        <SurfaceSelect />
+        {!isMobile && <SurfaceSelect />}
         <Button
           mis="10px"
           small
